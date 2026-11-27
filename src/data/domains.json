@@ -1,0 +1,17 @@
+[
+  {
+    "id": "cloud",
+    "name": "Cloud Concepts",
+    "weight": "25–30%"
+  },
+  {
+    "id": "architecture",
+    "name": "Azure Architecture and Services",
+    "weight": "35–40%"
+  },
+  {
+    "id": "governance",
+    "name": "Azure Management and Governance",
+    "weight": "30–35%"
+  }
+]

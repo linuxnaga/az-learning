@@ -1,6 +1,14 @@
-import content from '../data/content.json'
+import domains from '../data/domains.json'
+import cloudCards from '../data/flashcards/cloud.json'
+import architectureCards from '../data/flashcards/architecture.json'
+import governanceCards from '../data/flashcards/governance.json'
+import cloudQuestions from '../data/questions/cloud.json'
+import architectureQuestions from '../data/questions/architecture.json'
+import governanceQuestions from '../data/questions/governance.json'
 
-export const { domains, flashcards, questions } = content
+export { domains }
+export const flashcards = [...cloudCards, ...architectureCards, ...governanceCards]
+export const questions = [...cloudQuestions, ...architectureQuestions, ...governanceQuestions]
 
 export const STORAGE_KEY = 'az900-quest-v1'
 export const MAX_HEARTS = 5
@@ -182,30 +190,30 @@ export const BADGES = [
   {
     id: 'cloud-master',
     name: 'Cloud Concepts Master',
-    description: 'Correctly answer every Cloud Concepts question.',
+    description: 'Correctly answer 90% of the Cloud Concepts questions.',
     icon: 'Cloud',
-    check: (s) => allCorrect(s, (q) => q.domain === 'cloud'),
+    check: (s) => mostlyCorrect(s, (q) => q.domain === 'cloud'),
   },
   {
     id: 'architect',
     name: 'Architecture Ace',
-    description: 'Correctly answer every Architecture and Services question.',
+    description: 'Correctly answer 90% of the Architecture and Services questions.',
     icon: 'Server',
-    check: (s) => allCorrect(s, (q) => q.domain === 'architecture'),
+    check: (s) => mostlyCorrect(s, (q) => q.domain === 'architecture'),
   },
   {
     id: 'governor',
     name: 'Governance Guardian',
-    description: 'Correctly answer every Management and Governance question.',
+    description: 'Correctly answer 90% of the Management and Governance questions.',
     icon: 'Scale',
-    check: (s) => allCorrect(s, (q) => q.domain === 'governance'),
+    check: (s) => mostlyCorrect(s, (q) => q.domain === 'governance'),
   },
   {
     id: 'security-guru',
     name: 'Security Guru',
-    description: 'Correctly answer every security question (Zero Trust, RBAC, Entra ID, defense in depth...).',
+    description: 'Correctly answer 90% of the security questions (Zero Trust, RBAC, Entra ID, defense in depth...).',
     icon: 'ShieldCheck',
-    check: (s) => allCorrect(s, (q) => q.tags.includes('security')),
+    check: (s) => mostlyCorrect(s, (q) => q.tags.includes('security')),
   },
   {
     id: 'perfect-round',
@@ -217,16 +225,16 @@ export const BADGES = [
   {
     id: 'flashcard-fanatic',
     name: 'Flashcard Fanatic',
-    description: 'Review 50 flashcards.',
+    description: 'Review 100 flashcards.',
     icon: 'BookOpen',
-    check: (s) => s.stats.cardsReviewed >= 50,
+    check: (s) => s.stats.cardsReviewed >= 100,
   },
   {
     id: 'memory-bank',
     name: 'Memory Bank',
-    description: 'Master 12 flashcards (reach review box 3 or higher).',
+    description: 'Master 30 flashcards (reach review box 3 or higher).',
     icon: 'Brain',
-    check: (s) => Object.values(s.cards).filter(isMastered).length >= 12,
+    check: (s) => Object.values(s.cards).filter(isMastered).length >= 30,
   },
   {
     id: 'daily-habit',
@@ -244,9 +252,12 @@ export const BADGES = [
   },
 ]
 
-function allCorrect(state, pred) {
+const MASTERY_SHARE = 0.9
+
+function mostlyCorrect(state, pred) {
   const qs = questions.filter(pred)
-  return qs.length > 0 && qs.every((q) => state.correctIds[q.id])
+  const solved = qs.filter((q) => state.correctIds[q.id]).length
+  return qs.length > 0 && solved >= Math.ceil(qs.length * MASTERY_SHARE)
 }
 
 function withBadges(state) {

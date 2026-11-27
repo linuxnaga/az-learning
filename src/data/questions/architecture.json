@@ -1,0 +1,1058 @@
+[
+  {
+    "id": "q-arch-1",
+    "domain": "architecture",
+    "tags": [],
+    "question": "You need to ensure that your application stays available if a single Azure datacenter fails, while keeping all resources in the same region. What should you use?",
+    "options": [
+      "Region pairs",
+      "Availability Zones",
+      "Resource groups",
+      "Azure Content Delivery Network"
+    ],
+    "answer": 1,
+    "explanation": "Availability Zones are physically separate datacenter locations within one region, each with independent power, cooling and networking. Deploying across zones protects against a datacenter failure without leaving the region. Region pairs span two different regions."
+  },
+  {
+    "id": "q-arch-2",
+    "domain": "architecture",
+    "tags": [],
+    "question": "A developer deletes a resource group that contains three VMs, a storage account and a virtual network. What happens to those resources?",
+    "options": [
+      "They are moved to the default resource group",
+      "They remain running but become unmanaged",
+      "They are all deleted along with the resource group",
+      "Only the virtual network is deleted"
+    ],
+    "answer": 2,
+    "explanation": "A resource group is a lifecycle container: deleting it deletes every resource inside it. That is why resources that share a lifecycle are grouped together, and why resource locks are useful on important resource groups."
+  },
+  {
+    "id": "q-arch-3",
+    "domain": "architecture",
+    "tags": [],
+    "question": "You want to run a small piece of code every time a new image is uploaded to Blob Storage, and you only want to pay while the code is running. Which Azure service is the best fit?",
+    "options": [
+      "Azure Virtual Machines",
+      "Azure Kubernetes Service",
+      "Azure Functions",
+      "Azure App Service on a dedicated plan"
+    ],
+    "answer": 2,
+    "explanation": "Azure Functions is serverless, event-driven compute. A Blob Storage trigger can run the function on every upload, and on the Consumption plan you are billed only for execution time. VMs, AKS and dedicated App Service plans incur cost while idle."
+  },
+  {
+    "id": "q-arch-4",
+    "domain": "architecture",
+    "tags": [
+      "security"
+    ],
+    "question": "Your company requires a private, dedicated connection between its on-premises datacenter and Azure that does not travel over the public internet. What should you use?",
+    "options": [
+      "Site-to-site VPN Gateway",
+      "Point-to-site VPN",
+      "Azure ExpressRoute",
+      "VNet peering"
+    ],
+    "answer": 2,
+    "explanation": "ExpressRoute provides a private connection through a connectivity provider that does not traverse the public internet, with higher reliability and consistent latency. VPN Gateway connections are encrypted but still go over the public internet. VNet peering connects Azure VNets to each other, not to on-premises."
+  },
+  {
+    "id": "q-arch-5",
+    "domain": "architecture",
+    "tags": [],
+    "question": "You must retain audit logs for seven years for compliance. They will almost never be read, and a retrieval delay of several hours is acceptable. Which Blob access tier minimizes storage cost?",
+    "options": [
+      "Hot",
+      "Cool",
+      "Cold",
+      "Archive"
+    ],
+    "answer": 3,
+    "explanation": "The Archive tier has the lowest storage cost and is designed for data kept at least 180 days that is rarely accessed. Data is stored offline and must be rehydrated (which can take hours) before reading, which is acceptable here."
+  },
+  {
+    "id": "q-arch-6",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Several on-premises servers and Azure VMs need to mount the same shared folder using the SMB protocol. Which Azure Storage service should you use?",
+    "options": [
+      "Azure Blob Storage",
+      "Azure Files",
+      "Azure Disks",
+      "Azure Queue Storage"
+    ],
+    "answer": 1,
+    "explanation": "Azure Files offers fully managed file shares accessible via SMB (and NFS) that can be mounted concurrently by cloud and on-premises machines. Blob Storage is object storage over HTTP, Disks attach to a single VM as block storage, and Queue Storage is for messages."
+  },
+  {
+    "id": "q-arch-7",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Your team wants to deploy a microservices application packaged as containers and needs automated orchestration, scaling and self-healing of those containers. Which service should you choose?",
+    "options": [
+      "Azure Kubernetes Service (AKS)",
+      "Azure Virtual Desktop",
+      "Azure Batch",
+      "Azure Blob Storage"
+    ],
+    "answer": 0,
+    "explanation": "AKS is a managed Kubernetes service for orchestrating containers: it handles scheduling, scaling and restarting unhealthy containers, while Azure manages the Kubernetes control plane."
+  },
+  {
+    "id": "q-arch-8",
+    "domain": "architecture",
+    "tags": [],
+    "question": "A US federal agency must host workloads in an isolated Azure environment operated by screened US personnel. What should it use?",
+    "options": [
+      "A standard public Azure region",
+      "Azure Government (a sovereign region)",
+      "An Availability Zone in East US",
+      "Azure Arc"
+    ],
+    "answer": 1,
+    "explanation": "Azure Government is a sovereign cloud: physically and logically isolated from public Azure, built to meet US government compliance requirements and operated by screened US personnel."
+  },
+  {
+    "id": "q-arch-9",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which statement about Azure region pairs is correct?",
+    "options": [
+      "Paired regions are always in different continents",
+      "Planned Azure updates are rolled out to paired regions one region at a time",
+      "Region pairs share the same physical datacenter",
+      "Region pairs can be created by customers"
+    ],
+    "answer": 1,
+    "explanation": "Microsoft rolls out planned system updates to paired regions sequentially to minimize downtime, and prioritizes recovery of one region in each pair during a broad outage. Pairs are in the same geography and are defined by Microsoft."
+  },
+  {
+    "id": "q-arch-10",
+    "domain": "architecture",
+    "tags": [],
+    "question": "How many Availability Zones does an Azure region that supports Availability Zones have, at minimum?",
+    "options": [
+      "One",
+      "Two",
+      "Three",
+      "Six"
+    ],
+    "answer": 2,
+    "explanation": "Every zone-enabled Azure region has a minimum of three separate Availability Zones, each with independent power, cooling and networking."
+  },
+  {
+    "id": "q-arch-11",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which type of Azure service is pinned to a specific Availability Zone that you select?",
+    "options": [
+      "Zone-redundant service",
+      "Zonal service",
+      "Non-regional service",
+      "Global service"
+    ],
+    "answer": 1,
+    "explanation": "Zonal services, such as a VM or managed disk deployed to zone 1, are pinned to a specific zone you choose. Zone-redundant services are automatically replicated across zones by the platform."
+  },
+  {
+    "id": "q-arch-12",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Zone-redundant storage (ZRS) is an example of which type of Availability Zone service?",
+    "options": [
+      "Zonal service",
+      "Zone-redundant service",
+      "Non-regional service",
+      "Sovereign service"
+    ],
+    "answer": 1,
+    "explanation": "Zone-redundant services, such as ZRS and zone-redundant SQL Database, are automatically replicated across Availability Zones by the Azure platform."
+  },
+  {
+    "id": "q-arch-13",
+    "domain": "architecture",
+    "tags": [],
+    "question": "What is the correct order of the Azure hierarchy from largest scope to smallest?",
+    "options": [
+      "Resource group, subscription, management group, resource",
+      "Management group, subscription, resource group, resource",
+      "Subscription, management group, resource, resource group",
+      "Management group, resource group, subscription, resource"
+    ],
+    "answer": 1,
+    "explanation": "Management groups contain subscriptions, subscriptions contain resource groups, and resource groups contain resources. Policies and RBAC applied at a higher level are inherited by the levels below."
+  },
+  {
+    "id": "q-arch-14",
+    "domain": "architecture",
+    "tags": [],
+    "question": "You need to apply the same Azure Policy to 15 subscriptions in one step. What should you assign the policy to?",
+    "options": [
+      "Each resource group",
+      "A management group that contains the subscriptions",
+      "The Azure Advisor dashboard",
+      "A single storage account"
+    ],
+    "answer": 1,
+    "explanation": "Management groups let you apply governance conditions to many subscriptions at once. All subscriptions in a management group inherit its policy and RBAC assignments."
+  },
+  {
+    "id": "q-arch-15",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which two boundaries does an Azure subscription provide?",
+    "options": [
+      "A network boundary and a DNS boundary",
+      "A billing boundary and an access control boundary",
+      "A region boundary and a zone boundary",
+      "A storage boundary and a compute boundary"
+    ],
+    "answer": 1,
+    "explanation": "Subscriptions are billing boundaries (separate invoices and cost reports) and access control boundaries (access policies are applied at the subscription level)."
+  },
+  {
+    "id": "q-arch-16",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which statement about Azure resource groups is true?",
+    "options": [
+      "Resource groups can be nested inside other resource groups",
+      "A resource can belong to multiple resource groups",
+      "A resource can belong to only one resource group at a time",
+      "Resources in a group must be in the same region as the group"
+    ],
+    "answer": 2,
+    "explanation": "Each resource exists in exactly one resource group. Resource groups cannot be nested, resources can be moved between groups, and resources can be in different regions from the group itself."
+  },
+  {
+    "id": "q-arch-17",
+    "domain": "architecture",
+    "tags": [],
+    "question": "A resource group is created in the West US region. Can it contain a virtual machine deployed in North Europe?",
+    "options": [
+      "No, all resources must be in the same region as their resource group",
+      "Yes, the resource group's location only stores its metadata",
+      "Only if the VM is in an Availability Zone",
+      "Only if a region pair exists between them"
+    ],
+    "answer": 1,
+    "explanation": "A resource group's location is where its metadata is stored. Resources within it can be deployed in any region."
+  },
+  {
+    "id": "q-arch-18",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Every request to create or manage Azure resources, whether from the portal, CLI or PowerShell, is processed by which service?",
+    "options": [
+      "Azure Monitor",
+      "Azure Resource Manager",
+      "Azure Advisor",
+      "Microsoft Entra Connect"
+    ],
+    "answer": 1,
+    "explanation": "Azure Resource Manager (ARM) is the deployment and management layer for Azure. It authenticates and authorizes every request and provides consistent management across all tools."
+  },
+  {
+    "id": "q-arch-19",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Your web tier needs a group of identical VMs that automatically increases from 2 to 10 instances when CPU is high. Which service should you use?",
+    "options": [
+      "Availability sets",
+      "Virtual Machine Scale Sets",
+      "Azure Batch",
+      "Azure Virtual Desktop"
+    ],
+    "answer": 1,
+    "explanation": "Virtual Machine Scale Sets create and manage identical, load-balanced VMs and can automatically scale the number of instances based on demand or a schedule."
+  },
+  {
+    "id": "q-arch-20",
+    "domain": "architecture",
+    "tags": [],
+    "question": "How do availability sets protect VMs during planned maintenance?",
+    "options": [
+      "By copying VMs to a paired region",
+      "By placing VMs in different update domains so they are not all rebooted at the same time",
+      "By encrypting VM disks",
+      "By moving VMs to the Archive tier"
+    ],
+    "answer": 1,
+    "explanation": "Availability sets spread VMs across update domains (rebooted at different times during planned maintenance) and fault domains (separate power and network), so not all VMs go down at once."
+  },
+  {
+    "id": "q-arch-21",
+    "domain": "architecture",
+    "tags": [],
+    "question": "What is the additional cost of configuring an availability set?",
+    "options": [
+      "A fixed monthly fee",
+      "Double the VM price",
+      "There is no additional cost; you pay only for the VMs",
+      "A per-GB storage fee"
+    ],
+    "answer": 2,
+    "explanation": "Availability sets are free to configure. You only pay for the VM instances you create inside them."
+  },
+  {
+    "id": "q-arch-22",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Contractors must access a full Windows desktop from their personal laptops without company data being stored on those devices. Which Azure service fits best?",
+    "options": [
+      "Azure Virtual Desktop",
+      "Azure Container Instances",
+      "Azure Functions",
+      "Azure Batch"
+    ],
+    "answer": 0,
+    "explanation": "Azure Virtual Desktop delivers virtualized Windows desktops and apps from Azure. Data and apps stay in the cloud, so they aren't stored on the user's local device."
+  },
+  {
+    "id": "q-arch-23",
+    "domain": "architecture",
+    "tags": [],
+    "question": "You need to run a single container quickly without managing any virtual machines or orchestration. Which service is the simplest option?",
+    "options": [
+      "Azure Kubernetes Service",
+      "Azure Container Instances",
+      "Azure Virtual Machines",
+      "Azure Batch"
+    ],
+    "answer": 1,
+    "explanation": "Azure Container Instances is the fastest and simplest way to run a container in Azure, without managing VMs or adopting a higher-level orchestration service."
+  },
+  {
+    "id": "q-arch-24",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Compared to virtual machines, what is a key characteristic of containers?",
+    "options": [
+      "Each container includes its own full guest operating system",
+      "Containers share the host OS kernel, making them lightweight and fast to start",
+      "Containers cannot be scaled",
+      "Containers can only run on-premises"
+    ],
+    "answer": 1,
+    "explanation": "Containers package an app and its dependencies but share the host operating system kernel, so they are much lighter and start faster than VMs, which each run a full OS."
+  },
+  {
+    "id": "q-arch-25",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which Azure service hosts web apps, REST APIs and mobile back ends on Windows or Linux, with built-in autoscaling and deployment slots, without managing VMs?",
+    "options": [
+      "Azure App Service",
+      "Azure Virtual Machines",
+      "Azure Batch",
+      "Azure Data Box"
+    ],
+    "answer": 0,
+    "explanation": "Azure App Service is a fully managed PaaS for hosting web apps, API apps and mobile back ends, supporting multiple languages on Windows or Linux, with autoscaling and deployment slots."
+  },
+  {
+    "id": "q-arch-26",
+    "domain": "architecture",
+    "tags": [],
+    "question": "A business analyst wants to automate a workflow: when an email with an attachment arrives, save it to SharePoint and post a Teams message, using a visual designer with no code. Which service fits?",
+    "options": [
+      "Azure Logic Apps",
+      "Azure Functions",
+      "Azure Batch",
+      "Azure Virtual Desktop"
+    ],
+    "answer": 0,
+    "explanation": "Azure Logic Apps is a serverless, low-code workflow service with a visual designer and hundreds of prebuilt connectors to services like Outlook, SharePoint and Teams."
+  },
+  {
+    "id": "q-arch-27",
+    "domain": "architecture",
+    "tags": [],
+    "question": "A research team needs to run thousands of parallel simulation tasks across a large pool of VMs for a few days. Which service is designed for this?",
+    "options": [
+      "Azure Batch",
+      "Azure App Service",
+      "Azure Container Instances",
+      "Azure DNS"
+    ],
+    "answer": 0,
+    "explanation": "Azure Batch runs large-scale parallel and high-performance computing (HPC) jobs, provisioning and managing VM pools and scheduling tasks across them."
+  },
+  {
+    "id": "q-arch-28",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which is a capability of Azure Virtual Network?",
+    "options": [
+      "Hosting DNS domain registrations",
+      "Isolating and segmenting resources, and enabling communication with the internet, other Azure resources and on-premises networks",
+      "Storing blobs",
+      "Monitoring application performance"
+    ],
+    "answer": 1,
+    "explanation": "Azure Virtual Network provides isolation and segmentation (subnets), internet communication, communication between Azure resources, connectivity to on-premises networks, and routing and filtering of traffic."
+  },
+  {
+    "id": "q-arch-29",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Two virtual networks in different Azure regions must communicate privately without traversing the public internet. What should you configure?",
+    "options": [
+      "Global VNet peering",
+      "A public IP address on each VM",
+      "Azure DNS",
+      "A resource lock"
+    ],
+    "answer": 0,
+    "explanation": "VNet peering connects virtual networks, and global VNet peering connects VNets across regions. Traffic travels over the Microsoft backbone network, not the public internet."
+  },
+  {
+    "id": "q-arch-30",
+    "domain": "architecture",
+    "tags": [
+      "security"
+    ],
+    "question": "You need to allow only HTTPS (port 443) traffic from the internet into a web subnet and block all other inbound traffic. What should you use?",
+    "options": [
+      "A network security group (NSG)",
+      "Azure DNS",
+      "A resource group",
+      "Azure Advisor"
+    ],
+    "answer": 0,
+    "explanation": "Network security groups filter traffic to and from resources in a VNet using allow and deny rules based on source, destination, port and protocol, and can be applied to subnets or network interfaces."
+  },
+  {
+    "id": "q-arch-31",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which statement about Azure DNS is correct?",
+    "options": [
+      "It can be used to buy new domain names",
+      "It hosts DNS domains and records using Azure infrastructure, managed with Azure credentials and RBAC",
+      "It encrypts all network traffic",
+      "It replaces the need for virtual networks"
+    ],
+    "answer": 1,
+    "explanation": "Azure DNS hosts DNS domains and provides name resolution on Microsoft's global infrastructure. You manage records with the same credentials, billing and RBAC as other Azure services, but you can't purchase domain names through Azure DNS itself."
+  },
+  {
+    "id": "q-arch-32",
+    "domain": "architecture",
+    "tags": [],
+    "question": "You want on-premises sites in London and New York to communicate through their ExpressRoute circuits over the Microsoft network. Which feature should you use?",
+    "options": [
+      "ExpressRoute Global Reach",
+      "Point-to-site VPN",
+      "VNet peering",
+      "Azure Front Door"
+    ],
+    "answer": 0,
+    "explanation": "ExpressRoute Global Reach connects your on-premises sites together through their ExpressRoute circuits, so traffic between them flows across Microsoft's network instead of the public internet."
+  },
+  {
+    "id": "q-arch-33",
+    "domain": "architecture",
+    "tags": [],
+    "question": "A remote employee needs to connect their individual laptop securely to an Azure virtual network. Which connection type should you use?",
+    "options": [
+      "Site-to-site VPN",
+      "Point-to-site VPN",
+      "ExpressRoute",
+      "VNet peering"
+    ],
+    "answer": 1,
+    "explanation": "Point-to-site VPN connects an individual device to an Azure VNet over an encrypted tunnel. Site-to-site connects an entire on-premises network, and ExpressRoute is a private circuit for whole sites."
+  },
+  {
+    "id": "q-arch-34",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which type of VPN gateway is recommended when you need point-to-site connections and multiple site-to-site connections?",
+    "options": [
+      "Policy-based",
+      "Route-based",
+      "Static NAT",
+      "ExpressRoute-only"
+    ],
+    "answer": 1,
+    "explanation": "Route-based VPN gateways use routing tables to direct traffic into tunnels and are the preferred choice for point-to-site, VNet-to-VNet, and multiple site-to-site connections."
+  },
+  {
+    "id": "q-arch-35",
+    "domain": "architecture",
+    "tags": [],
+    "question": "What is a characteristic of Azure ExpressRoute connections?",
+    "options": [
+      "They always travel over the public internet",
+      "They are private connections that do not go over the public internet",
+      "They require each user to install a VPN client",
+      "They can only connect two Azure VNets"
+    ],
+    "answer": 1,
+    "explanation": "ExpressRoute uses a private connection through a connectivity provider, so traffic does not traverse the public internet, providing more reliability, faster speeds and consistent latency."
+  },
+  {
+    "id": "q-arch-36",
+    "domain": "architecture",
+    "tags": [
+      "security"
+    ],
+    "question": "You want a storage account to be reachable only from inside your virtual network, through a private IP address. What should you configure?",
+    "options": [
+      "A public endpoint",
+      "A private endpoint (Azure Private Link)",
+      "An Azure DNS public zone",
+      "A CDN profile"
+    ],
+    "answer": 1,
+    "explanation": "A private endpoint assigns a private IP address from your VNet to a PaaS service such as a storage account, so traffic stays on the Microsoft network and the service doesn't need public exposure."
+  },
+  {
+    "id": "q-arch-37",
+    "domain": "architecture",
+    "tags": [],
+    "question": "A web application needs to route requests by URL path (/images to one pool, /api to another) and be protected by a Web Application Firewall within one region. Which service fits best?",
+    "options": [
+      "Azure Load Balancer",
+      "Azure Application Gateway",
+      "Azure DNS",
+      "VPN Gateway"
+    ],
+    "answer": 1,
+    "explanation": "Application Gateway is a regional Layer 7 load balancer that can route based on URL paths and host headers, and it can include a Web Application Firewall. Azure Load Balancer works at Layer 4 and can't route by URL."
+  },
+  {
+    "id": "q-arch-38",
+    "domain": "architecture",
+    "tags": [],
+    "question": "At which OSI layer does Azure Load Balancer operate?",
+    "options": [
+      "Layer 2 (data link)",
+      "Layer 4 (transport: TCP/UDP)",
+      "Layer 7 (application: HTTP)",
+      "Layer 1 (physical)"
+    ],
+    "answer": 1,
+    "explanation": "Azure Load Balancer distributes inbound TCP and UDP traffic at Layer 4. For HTTP-aware routing, use Application Gateway (regional) or Front Door (global)."
+  },
+  {
+    "id": "q-arch-39",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Your global website needs a single entry point that routes users to the nearest healthy backend around the world, with caching and WAF. Which service fits best?",
+    "options": [
+      "Azure Front Door",
+      "Azure Load Balancer",
+      "Network security group",
+      "VPN Gateway"
+    ],
+    "answer": 0,
+    "explanation": "Azure Front Door is a global Layer 7 entry point that routes users to the fastest available backend, with caching, acceleration and an integrated Web Application Firewall."
+  },
+  {
+    "id": "q-arch-40",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which naming rule applies to Azure storage accounts?",
+    "options": [
+      "Names must be unique only within your subscription",
+      "Names must be globally unique, 3 to 24 characters, using only lowercase letters and numbers",
+      "Names may contain spaces and uppercase letters",
+      "Names must start with 'azure-'"
+    ],
+    "answer": 1,
+    "explanation": "Storage account names form part of a public endpoint URL (for example mystorage.blob.core.windows.net), so they must be globally unique, 3 to 24 characters long, and use only lowercase letters and numbers."
+  },
+  {
+    "id": "q-arch-41",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which storage account type is recommended for most scenarios, supporting Blob, Files, Queues and Tables?",
+    "options": [
+      "Standard general-purpose v2",
+      "Premium page blobs",
+      "Premium file shares",
+      "Premium block blobs"
+    ],
+    "answer": 0,
+    "explanation": "Standard general-purpose v2 is the recommended storage account type for most scenarios. It supports blobs (including Data Lake Storage), files, queues and tables."
+  },
+  {
+    "id": "q-arch-42",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which storage redundancy option keeps three copies of your data within a single datacenter, at the lowest cost?",
+    "options": [
+      "Locally redundant storage (LRS)",
+      "Zone-redundant storage (ZRS)",
+      "Geo-redundant storage (GRS)",
+      "Geo-zone-redundant storage (GZRS)"
+    ],
+    "answer": 0,
+    "explanation": "LRS replicates data three times within a single datacenter in the primary region. It's the lowest-cost option but doesn't protect against a datacenter-wide disaster."
+  },
+  {
+    "id": "q-arch-43",
+    "domain": "architecture",
+    "tags": [],
+    "question": "You need storage that survives the failure of an entire datacenter but must keep all data within a single region. Which redundancy option should you choose?",
+    "options": [
+      "LRS",
+      "ZRS",
+      "GRS",
+      "RA-GRS"
+    ],
+    "answer": 1,
+    "explanation": "Zone-redundant storage (ZRS) copies data synchronously across three Availability Zones in the primary region, so it survives a datacenter failure while staying in one region."
+  },
+  {
+    "id": "q-arch-44",
+    "domain": "architecture",
+    "tags": [],
+    "question": "You need storage data to be copied to a secondary region hundreds of miles away to protect against a regional outage. Which option meets this requirement at the lowest cost?",
+    "options": [
+      "LRS",
+      "ZRS",
+      "GRS",
+      "Premium LRS"
+    ],
+    "answer": 2,
+    "explanation": "Geo-redundant storage (GRS) copies data to a secondary region. LRS and ZRS keep data only in the primary region. GZRS would also work but adds zone redundancy at higher cost."
+  },
+  {
+    "id": "q-arch-45",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Your application needs to read data from the secondary region at all times, even when the primary region is healthy. Which redundancy option provides this?",
+    "options": [
+      "GRS",
+      "RA-GRS",
+      "ZRS",
+      "LRS"
+    ],
+    "answer": 1,
+    "explanation": "Read-access geo-redundant storage (RA-GRS) and RA-GZRS let you read data from the secondary region at any time. With plain GRS, the secondary is only accessible after a failover."
+  },
+  {
+    "id": "q-arch-46",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which redundancy option combines zone-redundant storage in the primary region with replication to a secondary region?",
+    "options": [
+      "LRS",
+      "ZRS",
+      "GRS",
+      "GZRS"
+    ],
+    "answer": 3,
+    "explanation": "Geo-zone-redundant storage (GZRS) replicates across three Availability Zones in the primary region (ZRS) and also copies data asynchronously to a secondary region."
+  },
+  {
+    "id": "q-arch-47",
+    "domain": "architecture",
+    "tags": [],
+    "question": "An order-processing app needs to pass messages between a web front end and a background worker for asynchronous processing. Which Azure Storage service fits?",
+    "options": [
+      "Azure Queue Storage",
+      "Azure Table Storage",
+      "Azure Files",
+      "Azure Disks"
+    ],
+    "answer": 0,
+    "explanation": "Azure Queue Storage stores large numbers of messages (up to 64 KB each) that components can add and process asynchronously, decoupling parts of an application."
+  },
+  {
+    "id": "q-arch-48",
+    "domain": "architecture",
+    "tags": [],
+    "question": "You need low-cost storage for large amounts of structured, non-relational data accessed by key. Which service fits best?",
+    "options": [
+      "Azure Table Storage",
+      "Azure Queue Storage",
+      "Azure Disks",
+      "Azure Files"
+    ],
+    "answer": 0,
+    "explanation": "Azure Table Storage is a NoSQL key/attribute store for structured, non-relational data with a schemaless design."
+  },
+  {
+    "id": "q-arch-49",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which Azure Storage service provides block-level storage volumes that are attached to Azure virtual machines?",
+    "options": [
+      "Azure Blob Storage",
+      "Azure Disks",
+      "Azure Files",
+      "Azure Queue Storage"
+    ],
+    "answer": 1,
+    "explanation": "Azure managed disks are block-level storage volumes managed by Azure and used with Azure VMs, like a physical disk in an on-premises server."
+  },
+  {
+    "id": "q-arch-50",
+    "domain": "architecture",
+    "tags": [],
+    "question": "You want to store video files and images that will be served directly to web browsers over HTTP. Which storage service is designed for this?",
+    "options": [
+      "Azure Blob Storage",
+      "Azure Queue Storage",
+      "Azure Table Storage",
+      "Azure Disks"
+    ],
+    "answer": 0,
+    "explanation": "Blob Storage is optimized for massive amounts of unstructured data such as images, video and documents, and can serve them directly to browsers over HTTP/HTTPS."
+  },
+  {
+    "id": "q-arch-51",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which blob access tier is optimized for data that is accessed frequently?",
+    "options": [
+      "Hot",
+      "Cool",
+      "Cold",
+      "Archive"
+    ],
+    "answer": 0,
+    "explanation": "The Hot tier has the highest storage cost but the lowest access cost, making it best for data accessed or modified frequently."
+  },
+  {
+    "id": "q-arch-52",
+    "domain": "architecture",
+    "tags": [],
+    "question": "What is the minimum recommended retention period for data in the Cool access tier?",
+    "options": [
+      "7 days",
+      "30 days",
+      "90 days",
+      "180 days"
+    ],
+    "answer": 1,
+    "explanation": "The Cool tier is for infrequently accessed data stored for at least 30 days. Deleting or moving it earlier incurs an early deletion charge."
+  },
+  {
+    "id": "q-arch-53",
+    "domain": "architecture",
+    "tags": [],
+    "question": "What is the minimum recommended retention period for data in the Cold access tier?",
+    "options": [
+      "30 days",
+      "60 days",
+      "90 days",
+      "180 days"
+    ],
+    "answer": 2,
+    "explanation": "The Cold tier is for rarely accessed data that is stored for at least 90 days, with lower storage costs than Cool but higher access costs."
+  },
+  {
+    "id": "q-arch-54",
+    "domain": "architecture",
+    "tags": [],
+    "question": "What must happen before you can read a blob that is stored in the Archive tier?",
+    "options": [
+      "Nothing, it can be read instantly",
+      "It must be rehydrated to an online tier such as Hot or Cool, which can take hours",
+      "It must be copied to Azure Files",
+      "It must be encrypted"
+    ],
+    "answer": 1,
+    "explanation": "Archive is an offline tier. Before data can be read, the blob must be rehydrated to an online tier (Hot, Cool or Cold), which can take up to several hours."
+  },
+  {
+    "id": "q-arch-55",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which statement about the Archive access tier is correct?",
+    "options": [
+      "It can be set as the default access tier for a storage account",
+      "It can only be set at the individual blob level",
+      "It has the highest storage cost",
+      "Data in it can be read with millisecond latency"
+    ],
+    "answer": 1,
+    "explanation": "The Archive tier can only be set on individual blobs, not as the account default. It has the lowest storage cost but the highest access cost and retrieval latency."
+  },
+  {
+    "id": "q-arch-56",
+    "domain": "architecture",
+    "tags": [],
+    "question": "You need to discover and assess hundreds of on-premises servers to plan their migration to Azure. Which service should you start with?",
+    "options": [
+      "Azure Migrate",
+      "Azure Data Box",
+      "Azure File Sync",
+      "Azure DNS"
+    ],
+    "answer": 0,
+    "explanation": "Azure Migrate is a unified hub for discovering, assessing and migrating on-premises servers, databases and web apps to Azure, and it tracks migration progress."
+  },
+  {
+    "id": "q-arch-57",
+    "domain": "architecture",
+    "tags": [],
+    "question": "You need to move 50 TB of data to Azure, but your internet connection is slow and limited. Which option should you use?",
+    "options": [
+      "AzCopy over the internet",
+      "Azure Data Box",
+      "Azure Storage Explorer",
+      "Point-to-site VPN"
+    ],
+    "answer": 1,
+    "explanation": "Azure Data Box is a physical device Microsoft ships to you for offline transfer of large datasets when network transfer would be too slow or expensive."
+  },
+  {
+    "id": "q-arch-58",
+    "domain": "architecture",
+    "tags": [],
+    "question": "An administrator wants to copy blobs between storage accounts by using a command-line tool in a script. Which tool should they use?",
+    "options": [
+      "AzCopy",
+      "Azure Storage Explorer",
+      "Azure Data Box",
+      "Azure Advisor"
+    ],
+    "answer": 0,
+    "explanation": "AzCopy is a command-line utility for copying blobs or files to, from, or between storage accounts, well suited to scripting and automation."
+  },
+  {
+    "id": "q-arch-59",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Branch offices need fast local access to files that are centrally stored in an Azure file share, with Windows Servers acting as a local cache. Which service enables this?",
+    "options": [
+      "Azure File Sync",
+      "Azure Data Box",
+      "Azure Blob lifecycle management",
+      "AzCopy"
+    ],
+    "answer": 0,
+    "explanation": "Azure File Sync centralizes file shares in Azure Files while keeping Windows Servers as local caches, so branch users get fast access and data stays in sync."
+  },
+  {
+    "id": "q-arch-60",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which tool provides a graphical desktop application for browsing and managing data in Azure Storage accounts?",
+    "options": [
+      "Azure Storage Explorer",
+      "AzCopy",
+      "Azure Data Box",
+      "Azure Monitor"
+    ],
+    "answer": 0,
+    "explanation": "Azure Storage Explorer is a standalone GUI app for Windows, macOS and Linux that lets you upload, download and manage blobs, files, queues and tables."
+  },
+  {
+    "id": "q-arch-61",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which statement about Azure Functions is correct?",
+    "options": [
+      "Functions must run continuously on a dedicated VM",
+      "Functions are triggered by events such as HTTP requests, timers or queue messages",
+      "Functions can only be written in C#",
+      "Functions require you to patch the OS"
+    ],
+    "answer": 1,
+    "explanation": "Azure Functions is event-driven serverless compute: code runs in response to triggers like HTTP requests, timers, queue messages or blob uploads, in many supported languages."
+  },
+  {
+    "id": "q-arch-62",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which Azure feature can extend Azure Functions to keep state across a long-running workflow?",
+    "options": [
+      "Durable Functions",
+      "Availability sets",
+      "Resource locks",
+      "Azure DNS"
+    ],
+    "answer": 0,
+    "explanation": "Functions are stateless by default. Durable Functions is an extension that lets you write stateful functions and orchestrations that track progress across long-running workflows."
+  },
+  {
+    "id": "q-arch-63",
+    "domain": "architecture",
+    "tags": [],
+    "question": "When you deploy a VM, which of the following is NOT created or chosen as part of the VM configuration?",
+    "options": [
+      "The OS image",
+      "The VM size (CPU and memory)",
+      "The Azure region",
+      "The physical server's power supply model"
+    ],
+    "answer": 3,
+    "explanation": "When creating a VM you choose the image, size, region, disks and networking. The physical hardware is managed entirely by Microsoft and isn't exposed to customers."
+  },
+  {
+    "id": "q-arch-64",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which Azure service lets you run containerized microservices with serverless autoscaling, without managing Kubernetes clusters directly?",
+    "options": [
+      "Azure Container Apps",
+      "Azure Data Box",
+      "Azure Table Storage",
+      "Azure Virtual Desktop"
+    ],
+    "answer": 0,
+    "explanation": "Azure Container Apps is a serverless platform for running containers and microservices, with built-in autoscaling (including to zero) and load balancing, without exposing Kubernetes management."
+  },
+  {
+    "id": "q-arch-66",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which of the following services is a non-regional (global) Azure service, available across Azure geographies regardless of zone or region outages?",
+    "options": [
+      "Microsoft Entra ID",
+      "A virtual machine",
+      "A managed disk",
+      "A VM scale set"
+    ],
+    "answer": 0,
+    "explanation": "Some services, such as Microsoft Entra ID, Azure Traffic Manager and Azure DNS, are non-regional: they are always available from Azure geographies and are resilient to zone-wide and region-wide outages."
+  },
+  {
+    "id": "q-arch-67",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which Azure networking component lets you override Azure's default routing, for example to send all traffic through a firewall appliance?",
+    "options": [
+      "User-defined routes (route tables)",
+      "Azure DNS",
+      "Resource tags",
+      "Blob lifecycle policy"
+    ],
+    "answer": 0,
+    "explanation": "User-defined routes in route tables let you control how traffic flows between subnets and to the internet, such as forcing traffic through a network virtual appliance."
+  },
+  {
+    "id": "q-arch-68",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which of the following can be connected to an Azure VNet by using a site-to-site VPN?",
+    "options": [
+      "An entire on-premises network",
+      "A single laptop only",
+      "Another Azure storage account",
+      "An Azure management group"
+    ],
+    "answer": 0,
+    "explanation": "Site-to-site VPN connects an on-premises network (through its VPN device) to an Azure VNet over an IPsec tunnel across the internet."
+  },
+  {
+    "id": "q-arch-69",
+    "domain": "architecture",
+    "tags": [],
+    "question": "You need a secure, highly available VPN connection to Azure. Which VPN Gateway configuration reduces downtime if one gateway instance fails?",
+    "options": [
+      "Active/active",
+      "Basic SKU with one tunnel",
+      "Point-to-site only",
+      "Policy-based single tunnel"
+    ],
+    "answer": 0,
+    "explanation": "In an active/active configuration, both gateway instances establish tunnels, so if one instance fails, traffic continues through the other."
+  },
+  {
+    "id": "q-arch-70",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Your app needs a public website domain, contoso.com, and you want to host its DNS records in Azure. Where do you purchase the domain name?",
+    "options": [
+      "From a domain registrar (or App Service domains), then delegate it to Azure DNS",
+      "Directly from Azure DNS",
+      "From Azure Resource Manager",
+      "From Microsoft Entra ID"
+    ],
+    "answer": 0,
+    "explanation": "Azure DNS hosts DNS zones but isn't a domain registrar. You buy the domain from a registrar (or through App Service domains) and delegate its name servers to Azure DNS."
+  },
+  {
+    "id": "q-arch-71",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which service would you use to host a static website and serve frequently accessed content from edge locations close to users worldwide?",
+    "options": [
+      "Azure Blob Storage with Azure Content Delivery Network (CDN)",
+      "Azure Queue Storage",
+      "Azure Batch",
+      "Azure Table Storage"
+    ],
+    "answer": 0,
+    "explanation": "Blob Storage can host static websites, and a CDN caches content at edge locations around the world to reduce latency for global users."
+  },
+  {
+    "id": "q-arch-72",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which compute option should you choose if you need full control over the operating system, including installing custom drivers and software?",
+    "options": [
+      "Azure Virtual Machines",
+      "Azure Functions",
+      "Azure App Service",
+      "Azure Logic Apps"
+    ],
+    "answer": 0,
+    "explanation": "Virtual machines are IaaS and give you full control over the OS, so you can install custom software and drivers. PaaS and serverless options abstract the OS away."
+  },
+  {
+    "id": "q-arch-73",
+    "domain": "architecture",
+    "tags": [],
+    "question": "You plan to migrate a large SQL Server database. Which tool in the Azure Migrate family helps assess and migrate databases?",
+    "options": [
+      "Azure Database Migration Service / Data Migration Assistant",
+      "Azure DNS",
+      "Azure Data Box Gateway",
+      "Azure Virtual Desktop"
+    ],
+    "answer": 0,
+    "explanation": "Azure Migrate integrates tools such as the Data Migration Assistant (assessment) and Azure Database Migration Service (migration) to move databases to Azure."
+  },
+  {
+    "id": "q-arch-74",
+    "domain": "architecture",
+    "tags": [],
+    "question": "How many parent management groups or subscriptions can a single management group or subscription have?",
+    "options": [
+      "One",
+      "Two",
+      "Up to six",
+      "Unlimited"
+    ],
+    "answer": 0,
+    "explanation": "Each management group and subscription can have only one parent, though a management group can have many children. The hierarchy supports up to six levels of depth below the root."
+  },
+  {
+    "id": "q-arch-75",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Why might an organization create multiple Azure subscriptions?",
+    "options": [
+      "To separate environments (such as dev and production) for billing and access control",
+      "To increase the size of virtual machines",
+      "To enable Availability Zones",
+      "Because each resource requires its own subscription"
+    ],
+    "answer": 0,
+    "explanation": "Separate subscriptions provide billing and access control boundaries, so organizations often use them for different environments, departments or projects and to work within subscription limits."
+  },
+  {
+    "id": "q-arch-76",
+    "domain": "architecture",
+    "tags": [],
+    "question": "Which Azure service is a fully managed, globally distributed NoSQL database with single-digit millisecond response times?",
+    "options": [
+      "Azure Cosmos DB",
+      "Azure Table Storage",
+      "Azure SQL Managed Instance",
+      "Azure Files"
+    ],
+    "answer": 0,
+    "explanation": "Azure Cosmos DB is a fully managed NoSQL (and relational) database service with global distribution, multiple APIs and guaranteed low latency."
+  }
+]
