@@ -1,0 +1,826 @@
+[
+  {
+    "id": "q-cloud-1",
+    "domain": "cloud",
+    "tags": [
+      "security"
+    ],
+    "question": "Your company is migrating an on-premises application to Azure Virtual Machines. Under the shared responsibility model, which task remains the customer's responsibility?",
+    "options": [
+      "Maintaining the physical datacenter's power and cooling",
+      "Applying security patches to the guest operating system",
+      "Replacing failed physical network switches",
+      "Securing the physical hosts that run the hypervisor"
+    ],
+    "answer": 1,
+    "explanation": "Azure VMs are IaaS. In IaaS, Microsoft is responsible for the physical datacenter, network and hosts, while the customer manages the guest OS, including patching, plus applications, data and identities."
+  },
+  {
+    "id": "q-cloud-2",
+    "domain": "cloud",
+    "tags": [],
+    "question": "A startup wants to deploy a web app without managing servers, operating systems or runtime patching, but it still wants to write and deploy its own code. Which cloud service model fits best?",
+    "options": [
+      "Infrastructure as a Service (IaaS)",
+      "Platform as a Service (PaaS)",
+      "Software as a Service (SaaS)",
+      "On-premises hosting"
+    ],
+    "answer": 1,
+    "explanation": "PaaS (for example Azure App Service) provides a managed platform: the provider handles the OS, runtime and patching, and the customer deploys and manages only their application code and data. IaaS would require managing the OS; SaaS would not allow custom code."
+  },
+  {
+    "id": "q-cloud-3",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Your finance team wants to stop making large up-front purchases of servers and instead pay only for the IT resources it consumes each month. Which expenditure model is this?",
+    "options": [
+      "Capital expenditure (CapEx)",
+      "Operational expenditure (OpEx)",
+      "Fixed-asset depreciation",
+      "Total cost of ownership (TCO)"
+    ],
+    "answer": 1,
+    "explanation": "Paying for services as you consume them is operational expenditure (OpEx). CapEx is up-front spending on physical infrastructure that is depreciated over time. Cloud computing's consumption-based model is an OpEx model."
+  },
+  {
+    "id": "q-cloud-4",
+    "domain": "cloud",
+    "tags": [],
+    "question": "An online retailer's traffic triples every evening and drops overnight. They want resources to be added and removed automatically to match demand. Which cloud benefit describes this?",
+    "options": [
+      "Elasticity",
+      "Fault tolerance",
+      "Disaster recovery",
+      "Agility"
+    ],
+    "answer": 0,
+    "explanation": "Elasticity is the ability to automatically and dynamically add or remove resources in response to changing demand, so you pay only for what you need. Fault tolerance and disaster recovery are about surviving failures, not tracking demand."
+  },
+  {
+    "id": "q-cloud-5",
+    "domain": "cloud",
+    "tags": [],
+    "question": "A hospital must keep patient records in its own datacenter for regulatory reasons, but wants to use Azure to burst its analytics workloads during peak periods. Which cloud model should it use?",
+    "options": [
+      "Public cloud",
+      "Private cloud",
+      "Hybrid cloud",
+      "Community cloud"
+    ],
+    "answer": 2,
+    "explanation": "A hybrid cloud combines on-premises (private) infrastructure with public cloud services, letting sensitive data stay on-premises while workloads burst into Azure. Public-only would move the records; private-only would not use Azure capacity."
+  },
+  {
+    "id": "q-cloud-6",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Microsoft guarantees 99.95% uptime for a service in its Service Level Agreement. Which cloud concept does this SLA primarily describe?",
+    "options": [
+      "Scalability",
+      "High availability",
+      "Elasticity",
+      "Predictability of cost"
+    ],
+    "answer": 1,
+    "explanation": "An SLA uptime percentage is a measure of high availability: how much of the time the service is guaranteed to be accessible. Higher percentages mean less permitted downtime (99.95% allows roughly 22 minutes per month)."
+  },
+  {
+    "id": "q-cloud-7",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Your database server is running out of memory, so you resize the VM from 8 GB to 32 GB of RAM. What type of scaling is this?",
+    "options": [
+      "Horizontal scaling (scale out)",
+      "Vertical scaling (scale up)",
+      "Geographic scaling",
+      "Elastic scaling in"
+    ],
+    "answer": 1,
+    "explanation": "Vertical scaling (scaling up) adds more capacity such as CPU or RAM to an existing resource. Horizontal scaling (scaling out) adds more instances of a resource, such as more VMs."
+  },
+  {
+    "id": "q-cloud-8",
+    "domain": "cloud",
+    "tags": [
+      "security"
+    ],
+    "question": "Under the shared responsibility model, which responsibility always stays with the customer, regardless of whether they use IaaS, PaaS or SaaS?",
+    "options": [
+      "Physical security of the datacenter",
+      "The information and data stored in the cloud",
+      "Patching the host hypervisor",
+      "Maintaining physical network hardware"
+    ],
+    "answer": 1,
+    "explanation": "Customers always own their information and data, the devices that connect, and the accounts and identities. Physical datacenter, network and host responsibilities always belong to the cloud provider."
+  },
+  {
+    "id": "q-cloud-9",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Your company uses a SaaS email service. Who is responsible for patching the email application itself?",
+    "options": [
+      "The customer",
+      "The cloud provider",
+      "The customer's internet service provider",
+      "It is shared equally between customer and provider"
+    ],
+    "answer": 1,
+    "explanation": "In SaaS, the provider manages the application, runtime, operating system and infrastructure, including patching. The customer manages data, devices, accounts and identities."
+  },
+  {
+    "id": "q-cloud-10",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which responsibility always belongs to the cloud provider in every cloud service model?",
+    "options": [
+      "Configuring user accounts",
+      "Classifying data",
+      "Physical security of datacenters, hosts and network",
+      "Managing devices that connect to the service"
+    ],
+    "answer": 2,
+    "explanation": "The physical datacenter, physical network and physical hosts are always the provider's responsibility in IaaS, PaaS and SaaS. Data, devices, and accounts and identities are always the customer's."
+  },
+  {
+    "id": "q-cloud-11",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which cloud service model gives the customer the most control over the operating system and installed software?",
+    "options": [
+      "SaaS",
+      "PaaS",
+      "IaaS",
+      "Serverless"
+    ],
+    "answer": 2,
+    "explanation": "IaaS provides virtual machines, storage and networking, and the customer manages the OS, middleware and applications, giving the most control. PaaS and SaaS hand more of the stack to the provider."
+  },
+  {
+    "id": "q-cloud-12",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which cloud service model requires the least management effort from the customer?",
+    "options": [
+      "IaaS",
+      "PaaS",
+      "SaaS",
+      "On-premises"
+    ],
+    "answer": 2,
+    "explanation": "With SaaS, the provider manages almost everything: infrastructure, platform and application. The customer only configures the software and manages its data and users."
+  },
+  {
+    "id": "q-cloud-13",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Microsoft 365 (Outlook, Teams, Word online) is an example of which cloud service model?",
+    "options": [
+      "Infrastructure as a Service",
+      "Platform as a Service",
+      "Software as a Service",
+      "Desktop as a Service"
+    ],
+    "answer": 2,
+    "explanation": "Microsoft 365 delivers finished applications over the internet that users simply consume and configure. That is the definition of Software as a Service."
+  },
+  {
+    "id": "q-cloud-14",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Azure SQL Database, where Microsoft manages the database engine, patching and backups, is an example of which service model?",
+    "options": [
+      "IaaS",
+      "PaaS",
+      "SaaS",
+      "On-premises"
+    ],
+    "answer": 1,
+    "explanation": "Azure SQL Database is a managed platform: you create databases and manage your data and schema, while Microsoft handles the OS, engine patching, backups and high availability. That is PaaS."
+  },
+  {
+    "id": "q-cloud-15",
+    "domain": "cloud",
+    "tags": [],
+    "question": "A company wants to migrate an existing application to Azure as quickly as possible with almost no code changes (lift-and-shift). Which service model is usually the best fit?",
+    "options": [
+      "IaaS",
+      "PaaS",
+      "SaaS",
+      "Serverless"
+    ],
+    "answer": 0,
+    "explanation": "Lift-and-shift moves existing servers into the cloud as virtual machines, which is IaaS. It preserves the OS and software configuration, so minimal changes are needed. PaaS and serverless typically require refactoring."
+  },
+  {
+    "id": "q-cloud-16",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which statement best describes cloud computing?",
+    "options": [
+      "Buying servers and installing them in your own datacenter",
+      "The delivery of computing services over the internet, typically paid for as you use them",
+      "A software licensing model where you pay once and own the software",
+      "A method of connecting office computers with network cables"
+    ],
+    "answer": 1,
+    "explanation": "Cloud computing is the delivery of computing services such as servers, storage, databases, networking and software over the internet, usually with a consumption-based pricing model."
+  },
+  {
+    "id": "q-cloud-17",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which is a key benefit of the consumption-based pricing model?",
+    "options": [
+      "You must pay for capacity up front",
+      "There are no upfront infrastructure costs and you pay only for the resources you use",
+      "Prices are fixed for five years",
+      "You own the hardware at the end of the contract"
+    ],
+    "answer": 1,
+    "explanation": "With consumption-based pricing there are no upfront infrastructure costs, you pay for additional resources only when you need them, and you stop paying for resources you no longer use."
+  },
+  {
+    "id": "q-cloud-18",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which statement best describes serverless computing?",
+    "options": [
+      "You must provision and patch the servers yourself",
+      "Servers are not used at all",
+      "The provider manages the servers, and you deploy code that runs on demand, typically paying only when it executes",
+      "It only runs on physical servers in your office"
+    ],
+    "answer": 2,
+    "explanation": "Serverless still runs on servers, but the provider fully manages them, including scaling. You deploy code or workflows (such as Azure Functions or Logic Apps) that run in response to events and are billed for execution."
+  },
+  {
+    "id": "q-cloud-19",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Why can a large public cloud provider often offer computing resources at a lower unit cost than an individual company can achieve on-premises?",
+    "options": [
+      "Economies of scale",
+      "Data sovereignty",
+      "Vertical scaling",
+      "Fault tolerance"
+    ],
+    "answer": 0,
+    "explanation": "Economies of scale let large providers purchase hardware, power and bandwidth more cheaply per unit and operate more efficiently, passing savings to customers."
+  },
+  {
+    "id": "q-cloud-20",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which cloud benefit describes the ability of a system to recover from failures and continue to function?",
+    "options": [
+      "Agility",
+      "Reliability",
+      "Elasticity",
+      "Predictability"
+    ],
+    "answer": 1,
+    "explanation": "Reliability is the ability of a system to recover from failures and continue to function. The cloud's decentralized design across zones and regions supports it."
+  },
+  {
+    "id": "q-cloud-21",
+    "domain": "cloud",
+    "tags": [],
+    "question": "A company wants to restore its services in a different Azure region after a natural disaster destroys the primary region. Which concept does this describe?",
+    "options": [
+      "Disaster recovery",
+      "Elasticity",
+      "Agility",
+      "Vertical scaling"
+    ],
+    "answer": 0,
+    "explanation": "Disaster recovery is the process of restoring service after a major disruptive event, typically by replicating data and workloads to another region and failing over. Azure Site Recovery is a common DR service."
+  },
+  {
+    "id": "q-cloud-22",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which cloud benefit lets a company accurately forecast its costs and expect consistent performance for its workloads?",
+    "options": [
+      "Predictability",
+      "Geo-distribution",
+      "Fault tolerance",
+      "Agility"
+    ],
+    "answer": 0,
+    "explanation": "Predictability covers both performance (autoscaling, load balancing, high availability) and cost (tracking usage in real time, budgets, and pricing tools such as the Pricing and TCO calculators)."
+  },
+  {
+    "id": "q-cloud-23",
+    "domain": "cloud",
+    "tags": [],
+    "question": "A development team needs to provision a new test environment in minutes rather than waiting weeks for hardware. Which cloud benefit does this illustrate?",
+    "options": [
+      "Economies of scale",
+      "Agility",
+      "Disaster recovery",
+      "Fault tolerance"
+    ],
+    "answer": 1,
+    "explanation": "Agility is the ability to rapidly deploy and configure resources as requirements change. Cloud resources can be provisioned in minutes through the portal, CLI or templates."
+  },
+  {
+    "id": "q-cloud-24",
+    "domain": "cloud",
+    "tags": [],
+    "question": "A company deploys its application in Azure regions in North America, Europe and Asia so users everywhere experience low latency. Which cloud benefit is this?",
+    "options": [
+      "Geo-distribution",
+      "Elasticity",
+      "Predictability",
+      "Economies of scale"
+    ],
+    "answer": 0,
+    "explanation": "Geo-distribution (global reach) lets you deploy apps and data to regional datacenters around the globe, ensuring the best performance for customers in each region."
+  },
+  {
+    "id": "q-cloud-25",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Managing Azure resources by using the Azure portal, Azure CLI, Azure PowerShell or REST APIs is an example of which concept?",
+    "options": [
+      "Management of the cloud",
+      "Management in the cloud",
+      "Elasticity",
+      "Geo-distribution"
+    ],
+    "answer": 1,
+    "explanation": "Management IN the cloud refers to how you manage your environment: through the portal, command-line tools, APIs or PowerShell. Management OF the cloud refers to managing the resources themselves, such as autoscaling and monitoring."
+  },
+  {
+    "id": "q-cloud-26",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Automatically scaling resources based on demand and automatically replacing failed resources are examples of which concept?",
+    "options": [
+      "Management in the cloud",
+      "Management of the cloud",
+      "CapEx",
+      "Data sovereignty"
+    ],
+    "answer": 1,
+    "explanation": "Management OF the cloud is about managing the resources themselves: automatic scaling, deploying from templates, monitoring health and automatically replacing failing resources."
+  },
+  {
+    "id": "q-cloud-27",
+    "domain": "cloud",
+    "tags": [
+      "security"
+    ],
+    "question": "Your company uses templates to ensure that every deployed resource meets corporate standards and regulatory requirements. Which cloud benefit does this represent?",
+    "options": [
+      "Security and governance",
+      "Elasticity",
+      "Geo-distribution",
+      "Economies of scale"
+    ],
+    "answer": 0,
+    "explanation": "Cloud governance features such as templates and policies help ensure deployed resources meet corporate standards and compliance requirements. This is part of the security and governance benefits of the cloud."
+  },
+  {
+    "id": "q-cloud-28",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which statement describes a private cloud?",
+    "options": [
+      "Resources are shared by many organizations over the public internet",
+      "Resources are used exclusively by a single organization, and that organization is responsible for the hardware",
+      "It is always hosted by Microsoft",
+      "It never requires capital expenditure"
+    ],
+    "answer": 1,
+    "explanation": "A private cloud is used by a single organization. It can be hosted on-premises or by a third party, and the organization is responsible for purchasing and maintaining the hardware, which gives the most control but requires CapEx."
+  },
+  {
+    "id": "q-cloud-29",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which is an advantage of the public cloud model?",
+    "options": [
+      "Complete control over physical hardware",
+      "No capital expenditure is required to scale up",
+      "Data must always stay in your own building",
+      "You are responsible for hardware maintenance"
+    ],
+    "answer": 1,
+    "explanation": "In the public cloud, the provider owns and maintains the hardware, so customers can scale without capital expenditure and pay only for what they use."
+  },
+  {
+    "id": "q-cloud-30",
+    "domain": "cloud",
+    "tags": [],
+    "question": "A company runs some workloads in Azure and others in another public cloud provider. Which cloud model is this?",
+    "options": [
+      "Private cloud",
+      "Hybrid cloud",
+      "Multi-cloud",
+      "Community cloud"
+    ],
+    "answer": 2,
+    "explanation": "Multi-cloud means using more than one public cloud provider. Hybrid cloud specifically combines private (on-premises) and public cloud environments."
+  },
+  {
+    "id": "q-cloud-31",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which Azure service lets you manage on-premises servers and resources in other clouds from Azure, applying Azure Policy and RBAC to them?",
+    "options": [
+      "Azure Arc",
+      "Azure VMware Solution",
+      "Azure Site Recovery",
+      "Azure Migrate"
+    ],
+    "answer": 0,
+    "explanation": "Azure Arc extends Azure management, governance and security to resources outside Azure, including on-premises servers, Kubernetes clusters and other clouds."
+  },
+  {
+    "id": "q-cloud-32",
+    "domain": "cloud",
+    "tags": [],
+    "question": "A company runs its virtualized workloads on VMware and wants to move them to Azure while keeping the same VMware tools. Which service should it use?",
+    "options": [
+      "Azure Arc",
+      "Azure VMware Solution",
+      "Azure Virtual Desktop",
+      "Azure Container Instances"
+    ],
+    "answer": 1,
+    "explanation": "Azure VMware Solution runs VMware workloads natively on dedicated Azure infrastructure, so you can migrate or extend VMware environments using familiar VMware tools."
+  },
+  {
+    "id": "q-cloud-33",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which cloud deployment model provides the most flexibility, letting an organization decide where to run each application, on-premises or in a public cloud?",
+    "options": [
+      "Public cloud",
+      "Private cloud",
+      "Hybrid cloud",
+      "Single-tenant cloud"
+    ],
+    "answer": 2,
+    "explanation": "Hybrid cloud combines private and public clouds, so organizations can choose where each workload runs based on security, compliance, legal or cost requirements."
+  },
+  {
+    "id": "q-cloud-34",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which of the following is an example of capital expenditure (CapEx)?",
+    "options": [
+      "Paying a monthly fee for cloud storage",
+      "Purchasing servers and networking equipment for a new datacenter",
+      "Paying per minute for an Azure VM",
+      "A pay-as-you-go SaaS subscription"
+    ],
+    "answer": 1,
+    "explanation": "CapEx is up-front spending on physical infrastructure such as buildings, servers and network equipment. Monthly cloud fees and usage-based billing are OpEx."
+  },
+  {
+    "id": "q-cloud-35",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which of the following is an example of operational expenditure (OpEx)?",
+    "options": [
+      "Buying a building for a datacenter",
+      "Purchasing a backup generator",
+      "A monthly bill for the Azure resources you used",
+      "Buying server racks"
+    ],
+    "answer": 2,
+    "explanation": "OpEx is spending on services or products as you use them, billed as you go, such as monthly cloud usage charges. Purchasing physical assets is CapEx."
+  },
+  {
+    "id": "q-cloud-36",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which type of expense is typically deducted over time through depreciation?",
+    "options": [
+      "Operational expenditure (OpEx)",
+      "Capital expenditure (CapEx)",
+      "Consumption-based spending",
+      "Pay-as-you-go spending"
+    ],
+    "answer": 1,
+    "explanation": "Capital expenditures are for long-lived physical assets whose value is deducted over time through depreciation. OpEx can be deducted in the same period in which it is incurred."
+  },
+  {
+    "id": "q-cloud-37",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which statement about operational expenditure (OpEx) is true?",
+    "options": [
+      "It requires a large up-front payment",
+      "It can typically be deducted in the same period it is incurred",
+      "It is depreciated over several years",
+      "It applies only to physical assets"
+    ],
+    "answer": 1,
+    "explanation": "OpEx covers ongoing costs of services and can generally be deducted from taxable income in the same period. CapEx is depreciated over the asset's lifetime."
+  },
+  {
+    "id": "q-cloud-38",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Your web app is slow during peak hours, so you add three more VM instances behind a load balancer. What type of scaling is this?",
+    "options": [
+      "Vertical scaling (scale up)",
+      "Horizontal scaling (scale out)",
+      "Scaling down",
+      "Geo-scaling"
+    ],
+    "answer": 1,
+    "explanation": "Adding more instances of a resource is horizontal scaling (scaling out). Vertical scaling changes the size of an existing resource, such as adding CPU or RAM."
+  },
+  {
+    "id": "q-cloud-39",
+    "domain": "cloud",
+    "tags": [],
+    "question": "After peak season ends, you reduce the number of VM instances from ten to three. What is this called?",
+    "options": [
+      "Scaling in",
+      "Scaling up",
+      "Scaling down",
+      "Failover"
+    ],
+    "answer": 0,
+    "explanation": "Removing instances is horizontal scaling in. Scaling down is the vertical equivalent, reducing the size (CPU, RAM) of a single resource."
+  },
+  {
+    "id": "q-cloud-40",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Your VM is consistently underused, so you move it to a smaller size with fewer CPUs to save money. What type of scaling is this?",
+    "options": [
+      "Scaling out",
+      "Scaling in",
+      "Scaling down (vertical)",
+      "Elastic failover"
+    ],
+    "answer": 2,
+    "explanation": "Reducing the capacity of a single resource is vertical scaling, specifically scaling down. Scaling in reduces the number of instances."
+  },
+  {
+    "id": "q-cloud-41",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which SLA allows the LEAST monthly downtime?",
+    "options": [
+      "99%",
+      "99.9%",
+      "99.95%",
+      "99.99%"
+    ],
+    "answer": 3,
+    "explanation": "A higher SLA percentage means less permitted downtime. 99.99% allows about 4.4 minutes per month, compared to about 43.8 minutes for 99.9% and over 7 hours for 99%."
+  },
+  {
+    "id": "q-cloud-42",
+    "domain": "cloud",
+    "tags": [],
+    "question": "An application depends on two services in sequence, each with an SLA of 99.9%. What is the approximate composite SLA?",
+    "options": [
+      "99.99%",
+      "99.9%",
+      "99.8%",
+      "100%"
+    ],
+    "answer": 2,
+    "explanation": "When services depend on each other, the composite SLA is the product of their SLAs: 0.999 x 0.999 = 0.998, or about 99.8%. Combining dependent services lowers overall availability."
+  },
+  {
+    "id": "q-cloud-43",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which action most increases the availability of an application running on virtual machines?",
+    "options": [
+      "Using a larger VM size",
+      "Deploying multiple VM instances across Availability Zones behind a load balancer",
+      "Storing the VM disk in the Archive tier",
+      "Running a single VM with more memory"
+    ],
+    "answer": 1,
+    "explanation": "High availability comes from redundancy. Multiple instances across Availability Zones, with a load balancer distributing traffic, keep the app running even if one instance or datacenter fails."
+  },
+  {
+    "id": "q-cloud-44",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Users in Australia complain that your app hosted only in a US region is slow. What is the most direct way to reduce their latency?",
+    "options": [
+      "Increase the VM size in the US region",
+      "Deploy the app to an Azure region close to Australia",
+      "Switch the storage to the Cool tier",
+      "Add a resource lock"
+    ],
+    "answer": 1,
+    "explanation": "Latency is mainly caused by physical distance. Deploying to a region close to the users (geo-distribution) reduces round-trip time."
+  },
+  {
+    "id": "q-cloud-45",
+    "domain": "cloud",
+    "tags": [
+      "security"
+    ],
+    "question": "Your company hosts a web app on Azure App Service (PaaS). Which item is your company responsible for?",
+    "options": [
+      "Patching the host operating system",
+      "The physical network",
+      "Managing user accounts and identities",
+      "Datacenter physical security"
+    ],
+    "answer": 2,
+    "explanation": "Accounts and identities are always the customer's responsibility. In PaaS, the provider manages the OS, runtime and physical infrastructure."
+  },
+  {
+    "id": "q-cloud-46",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which is NOT a characteristic of cloud computing?",
+    "options": [
+      "On-demand self-service provisioning",
+      "Broad network access",
+      "Requires a large upfront hardware purchase",
+      "Measured, pay-for-what-you-use service"
+    ],
+    "answer": 2,
+    "explanation": "Cloud computing avoids large upfront hardware purchases. On-demand self-service, broad network access, resource pooling, rapid elasticity and measured service are its standard characteristics."
+  },
+  {
+    "id": "q-cloud-47",
+    "domain": "cloud",
+    "tags": [],
+    "question": "An administrator manually adds VM instances on Fridays because they expect more weekend traffic. Which cloud concept does this best illustrate?",
+    "options": [
+      "Scalability",
+      "Elasticity",
+      "Fault tolerance",
+      "Disaster recovery"
+    ],
+    "answer": 0,
+    "explanation": "Scalability is the ability to add or remove resources to meet demand, including manually. Elasticity specifically means scaling automatically in response to real-time demand."
+  },
+  {
+    "id": "q-cloud-48",
+    "domain": "cloud",
+    "tags": [],
+    "question": "The cloud's decentralized design, with resources deployed across many datacenters and regions, most directly supports which benefit?",
+    "options": [
+      "Reliability",
+      "CapEx",
+      "Data sovereignty",
+      "Vendor lock-in"
+    ],
+    "answer": 0,
+    "explanation": "Spreading resources across datacenters and regions means a failure in one location doesn't take the whole workload down. That decentralized design naturally supports reliability and resiliency."
+  },
+  {
+    "id": "q-cloud-49",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which statement about a private cloud is true?",
+    "options": [
+      "It is always hosted in the customer's own building",
+      "It can be hosted on-premises or in a third-party datacenter, but is used by a single organization",
+      "It is shared among many unrelated organizations",
+      "The provider is responsible for all hardware costs"
+    ],
+    "answer": 1,
+    "explanation": "A private cloud is dedicated to one organization. It may be hosted in the organization's own datacenter or by a third-party provider, but resources are not shared with other organizations."
+  },
+  {
+    "id": "q-cloud-50",
+    "domain": "cloud",
+    "tags": [],
+    "question": "In the public cloud, who owns the physical hardware that runs customer workloads?",
+    "options": [
+      "The customer",
+      "The cloud provider",
+      "The customer's internet provider",
+      "A government agency"
+    ],
+    "answer": 1,
+    "explanation": "In the public cloud, the provider owns, manages and maintains the hardware, and customers rent capacity from it."
+  },
+  {
+    "id": "q-cloud-51",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which cloud model describes resources that are available to anyone who wants to purchase them over the internet?",
+    "options": [
+      "Public cloud",
+      "Private cloud",
+      "Hybrid cloud",
+      "On-premises"
+    ],
+    "answer": 0,
+    "explanation": "The public cloud is built, controlled and maintained by a provider, and its services are available to the general public over the internet."
+  },
+  {
+    "id": "q-cloud-52",
+    "domain": "cloud",
+    "tags": [],
+    "question": "A bank must keep full control of the hardware that stores customer data and keep it in its own datacenter. Which cloud model meets this requirement?",
+    "options": [
+      "Public cloud",
+      "Private cloud",
+      "Multi-cloud",
+      "SaaS"
+    ],
+    "answer": 1,
+    "explanation": "A private cloud gives a single organization complete control over hardware, data location and security, which is often required for strict regulatory reasons."
+  },
+  {
+    "id": "q-cloud-53",
+    "domain": "cloud",
+    "tags": [
+      "security"
+    ],
+    "question": "What is the primary purpose of the shared responsibility model?",
+    "options": [
+      "To transfer all security responsibility to the cloud provider",
+      "To clarify which security and management tasks are handled by the provider and which by the customer",
+      "To set the price of cloud services",
+      "To define SLAs for each Azure service"
+    ],
+    "answer": 1,
+    "explanation": "The shared responsibility model defines who is responsible for each part of the stack. Responsibilities shift between provider and customer depending on whether you use IaaS, PaaS or SaaS."
+  },
+  {
+    "id": "q-cloud-54",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Azure bills virtual machines per second of use. Which pricing model does this represent?",
+    "options": [
+      "Reserved capacity",
+      "Pay-as-you-go",
+      "Perpetual licensing",
+      "Capital expenditure"
+    ],
+    "answer": 1,
+    "explanation": "Paying for what you use, measured in small increments such as seconds or GB, is the pay-as-you-go (consumption-based) model."
+  },
+  {
+    "id": "q-cloud-55",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which cloud characteristic means users can provision computing resources themselves, without needing human interaction with the provider?",
+    "options": [
+      "On-demand self-service",
+      "Resource pooling",
+      "Measured service",
+      "Broad network access"
+    ],
+    "answer": 0,
+    "explanation": "On-demand self-service means you can create resources yourself, for example in the Azure portal, whenever you need them, without contacting the provider."
+  },
+  {
+    "id": "q-cloud-56",
+    "domain": "cloud",
+    "tags": [],
+    "question": "Which cloud characteristic means resource usage is monitored, controlled and reported, so you pay only for what you use?",
+    "options": [
+      "Measured service",
+      "Resource pooling",
+      "Rapid elasticity",
+      "On-demand self-service"
+    ],
+    "answer": 0,
+    "explanation": "Measured service means the provider meters usage (compute time, storage, bandwidth), which enables transparent pay-per-use billing."
+  },
+  {
+    "id": "q-cloud-57",
+    "domain": "cloud",
+    "tags": [
+      "security"
+    ],
+    "question": "In the IaaS model, which task is the customer's responsibility?",
+    "options": [
+      "Replacing failed disks in the physical servers",
+      "Configuring the guest OS firewall and installing applications",
+      "Securing the datacenter building",
+      "Maintaining the host hypervisor"
+    ],
+    "answer": 1,
+    "explanation": "In IaaS the customer manages everything from the guest operating system up: OS configuration and updates, firewalls on the VM, middleware and applications. The provider manages physical infrastructure and the hypervisor."
+  },
+  {
+    "id": "q-cloud-58",
+    "domain": "cloud",
+    "tags": [],
+    "question": "A company needs to keep running if a single server's power supply fails, with no interruption to users. Which concept describes this?",
+    "options": [
+      "Fault tolerance",
+      "Disaster recovery",
+      "Agility",
+      "Predictability"
+    ],
+    "answer": 0,
+    "explanation": "Fault tolerance is the ability to keep operating without interruption when a component fails, using redundant components that take over immediately."
+  }
+]

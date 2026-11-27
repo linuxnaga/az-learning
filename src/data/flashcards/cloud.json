@@ -1,0 +1,177 @@
+[
+  {
+    "id": "fc-cloud-1",
+    "domain": "cloud",
+    "term": "Shared Responsibility Model",
+    "definition": "Security and management duties are split between the cloud provider and the customer. The provider always owns the physical datacenter, network and hosts. The customer always owns their data, devices, accounts and identities. Everything in between (OS, apps, network controls) shifts toward the provider as you move from IaaS to PaaS to SaaS.",
+    "analogy": "Renting a car: the rental company maintains the engine and brakes, but you are responsible for how you drive and what you leave on the back seat. With an Azure VM you patch the OS; with Microsoft 365 Microsoft patches everything but you still own who has access to your files."
+  },
+  {
+    "id": "fc-cloud-2",
+    "domain": "cloud",
+    "term": "IaaS vs. PaaS vs. SaaS",
+    "definition": "IaaS (Infrastructure as a Service) rents raw compute, storage and networking; you manage the OS and above. PaaS (Platform as a Service) provides a managed runtime; you manage only your app and data. SaaS (Software as a Service) delivers a finished application; you just configure and use it.",
+    "analogy": "Pizza as a service: IaaS is buying the kitchen time (Azure Virtual Machines), PaaS is a take-and-bake pizza (Azure App Service, Azure SQL Database), SaaS is pizza delivered to your door (Microsoft 365, Outlook)."
+  },
+  {
+    "id": "fc-cloud-3",
+    "domain": "cloud",
+    "term": "CapEx vs. OpEx",
+    "definition": "Capital Expenditure (CapEx) is a large up-front spend on physical assets such as servers and datacenters, depreciated over time. Operational Expenditure (OpEx) is ongoing spend on services as you consume them. The cloud's consumption-based model shifts IT spending from CapEx to OpEx.",
+    "analogy": "Buying a house (CapEx) versus paying rent (OpEx). Instead of buying 50 servers for a peak you might never hit, you pay per hour for Azure VMs and stop paying when you shut them down."
+  },
+  {
+    "id": "fc-cloud-4",
+    "domain": "cloud",
+    "term": "High Availability",
+    "definition": "Designing a service to stay accessible with minimal downtime, even when components fail. It is usually expressed as an uptime percentage in a Service Level Agreement (SLA), for example 99.9% or 99.99%, and achieved through redundancy across hardware, zones or regions.",
+    "analogy": "A plane with two engines: if one fails it can still land. Running two or more VMs across Availability Zones behind a load balancer keeps your app online if one datacenter has an outage."
+  },
+  {
+    "id": "fc-cloud-5",
+    "domain": "cloud",
+    "term": "Scalability vs. Elasticity",
+    "definition": "Scalability is the ability to add or remove resources to handle demand: vertically (scale up to a bigger machine) or horizontally (scale out to more machines). Elasticity is scaling that happens automatically and in near real time as demand rises and falls, so you only pay for what you need.",
+    "analogy": "Scalability is a restaurant that can add tables when it gets popular. Elasticity is tables that appear on their own at the lunch rush and vanish at 3 p.m. In Azure, Virtual Machine Scale Sets with autoscale rules add VMs when CPU spikes and remove them when it drops."
+  },
+  {
+    "id": "fc-cloud-6",
+    "domain": "cloud",
+    "term": "Public, Private and Hybrid Cloud",
+    "definition": "Public cloud is owned and run by a provider and shared by many customers, with no CapEx to scale. Private cloud is used by a single organization, either on-premises or hosted, offering full control at higher cost. Hybrid cloud combines both, letting data and apps move between them. Multi-cloud uses more than one public provider.",
+    "analogy": "Public is a hotel, private is your own house, hybrid is your house plus a hotel room when relatives visit. Azure Arc lets you manage on-premises and other-cloud servers from Azure as part of a hybrid strategy."
+  },
+  {
+    "id": "fc-cloud-7",
+    "domain": "cloud",
+    "term": "Cloud Computing",
+    "definition": "The delivery of computing services (servers, storage, databases, networking, software, analytics) over the internet. You rent capacity on demand instead of buying and running your own datacenter, and you pay for what you use.",
+    "analogy": "Like electricity from the grid: you don't build a power plant, you plug in and pay for the kilowatt-hours you use. Azure lets you spin up a server in minutes and switch it off when you're done."
+  },
+  {
+    "id": "fc-cloud-8",
+    "domain": "cloud",
+    "term": "Consumption-Based (Pay-as-you-go) Model",
+    "definition": "You pay only for the resources you actually use, with no upfront infrastructure costs. Billing is metered, for example per second of VM time or per GB stored, and you stop paying when you stop using the resource.",
+    "analogy": "A taxi meter instead of buying a car. An Azure VM billed per second costs nothing once it is deallocated."
+  },
+  {
+    "id": "fc-cloud-9",
+    "domain": "cloud",
+    "term": "Serverless Computing",
+    "definition": "A cloud model where the provider runs and scales the servers, and you deploy only code or logic. It is event-driven and typically billed only for execution time. Azure Functions and Azure Logic Apps are serverless services.",
+    "analogy": "Paying for a ride-share only for the trip, not for the car sitting in the driveway. An Azure Function that resizes images runs (and bills) only when an image arrives."
+  },
+  {
+    "id": "fc-cloud-10",
+    "domain": "cloud",
+    "term": "Economies of Scale",
+    "definition": "The ability to do things more efficiently and at lower cost per unit when operating at a large scale. Cloud providers buy hardware and power in enormous volumes and pass part of the savings on to customers.",
+    "analogy": "A warehouse club buys in bulk so each item is cheaper. Microsoft runs millions of servers, so each one costs less to buy and operate than yours would."
+  },
+  {
+    "id": "fc-cloud-11",
+    "domain": "cloud",
+    "term": "Reliability",
+    "definition": "The ability of a system to recover from failures and continue to function. The cloud's decentralized design, with resources spread across zones and regions, naturally supports reliable, resilient workloads.",
+    "analogy": "A bridge held up by many cables: one snaps and the bridge still stands. Zone-redundant storage keeps your data readable if a datacenter goes down."
+  },
+  {
+    "id": "fc-cloud-12",
+    "domain": "cloud",
+    "term": "Predictability",
+    "definition": "Cloud benefits that let you forecast with confidence. Performance predictability comes from autoscaling, load balancing and high availability. Cost predictability comes from real-time cost tracking, budgets and tools such as the Pricing and TCO calculators.",
+    "analogy": "A monthly phone plan with a usage dashboard: you know roughly what you'll pay and you get warned before overages. Azure budgets and Cost Management give you the same visibility."
+  },
+  {
+    "id": "fc-cloud-13",
+    "domain": "cloud",
+    "term": "Security and Governance Benefits",
+    "definition": "Cloud features that help you meet corporate standards and regulations: templates and policies ensure deployments comply, the provider handles many patches automatically, and services exist for identity, threat protection and compliance reporting.",
+    "analogy": "A franchise operations manual that makes every store meet the same standards. Azure Policy and Blueprints-style templates make every deployment follow your rules."
+  },
+  {
+    "id": "fc-cloud-14",
+    "domain": "cloud",
+    "term": "Manageability: Of the Cloud vs. In the Cloud",
+    "definition": "Management OF the cloud means managing resources themselves: autoscaling, deploying from templates, monitoring health and automatically replacing failed resources. Management IN the cloud means how you manage: through the Azure portal, Azure CLI, Azure PowerShell or REST APIs.",
+    "analogy": "Of the cloud is the thermostat that adjusts the temperature by itself. In the cloud is whether you change the setting from the wall panel, a phone app or a voice assistant."
+  },
+  {
+    "id": "fc-cloud-15",
+    "domain": "cloud",
+    "term": "Agility",
+    "definition": "The ability to deploy and configure resources quickly as requirements change. In the cloud you can provision new environments in minutes instead of waiting weeks for hardware procurement.",
+    "analogy": "Streaming a movie tonight instead of mailing a DVD order. A dev team can stand up a test environment in Azure before lunch and delete it by dinner."
+  },
+  {
+    "id": "fc-cloud-16",
+    "domain": "cloud",
+    "term": "Geo-distribution (Global Reach)",
+    "definition": "Deploying applications and data to regional datacenters around the world so customers get the best performance and data can stay in required jurisdictions.",
+    "analogy": "A coffee chain opening branches near every neighborhood so no one walks far. Hosting your app in Azure regions near your users reduces latency."
+  },
+  {
+    "id": "fc-cloud-17",
+    "domain": "cloud",
+    "term": "Fault Tolerance vs. Disaster Recovery",
+    "definition": "Fault tolerance keeps a system running with no interruption when a component fails, by having redundant components ready. Disaster recovery is the process of restoring service after a major event (such as a region outage), typically by replicating data and failing over to another region.",
+    "analogy": "Fault tolerance is a spare tire mounted and spinning already (run-flat tires). Disaster recovery is calling a tow truck and continuing in a rental car. Azure Site Recovery orchestrates DR failover."
+  },
+  {
+    "id": "fc-cloud-18",
+    "domain": "cloud",
+    "term": "Vertical vs. Horizontal Scaling",
+    "definition": "Vertical scaling (scale up or down) changes the size of a single resource, such as adding CPUs or RAM to a VM. Horizontal scaling (scale out or in) changes the number of resources, such as adding more VM instances behind a load balancer.",
+    "analogy": "Vertical is swapping your car for a bus. Horizontal is adding more cars to the fleet. VM Scale Sets scale out; resizing a VM SKU scales up."
+  },
+  {
+    "id": "fc-cloud-19",
+    "domain": "cloud",
+    "term": "Service Level Agreement (SLA)",
+    "definition": "A formal agreement that defines the performance and availability a provider commits to, usually as an uptime percentage, along with the service credits you get if it is missed. Combining dependent services multiplies their SLAs (a composite SLA), which lowers overall availability.",
+    "analogy": "A delivery guarantee: 'on time or your money back'. Two services at 99.9% that depend on each other give a composite SLA of about 99.8%."
+  },
+  {
+    "id": "fc-cloud-20",
+    "domain": "cloud",
+    "term": "Multi-cloud",
+    "definition": "Using services from more than one public cloud provider at the same time, for example running some workloads in Azure and others in another provider. It adds flexibility but also management complexity.",
+    "analogy": "Banking with two banks for different needs. Azure Arc helps you manage resources across several clouds from one place."
+  },
+  {
+    "id": "fc-cloud-21",
+    "domain": "cloud",
+    "term": "Azure Arc",
+    "definition": "A set of technologies that extends Azure management and governance to resources outside Azure: on-premises servers, Kubernetes clusters and databases, and resources in other clouds. You can apply Azure Policy, RBAC and monitoring to them as if they were in Azure.",
+    "analogy": "A universal remote that controls your TV, soundbar and old DVD player from one device. Arc lets you see on-prem and multi-cloud servers in the Azure portal."
+  },
+  {
+    "id": "fc-cloud-22",
+    "domain": "cloud",
+    "term": "Azure VMware Solution",
+    "definition": "A service that runs VMware workloads natively on dedicated Azure infrastructure, so you can migrate or extend an existing VMware environment to Azure using the same VMware tools and skills.",
+    "analogy": "Moving house but keeping all your furniture arranged exactly the same way. Your vSphere VMs keep running with the same tools, now on Azure hardware."
+  },
+  {
+    "id": "fc-cloud-23",
+    "domain": "cloud",
+    "term": "Private Cloud",
+    "definition": "Cloud computing resources used exclusively by a single organization. It can be hosted in the organization's own datacenter or by a third party. It offers maximum control over hardware and security but requires the organization to buy and maintain the infrastructure (CapEx).",
+    "analogy": "Owning a private gym: total control of the equipment and hours, but you pay for every treadmill and its repairs."
+  },
+  {
+    "id": "fc-cloud-24",
+    "domain": "cloud",
+    "term": "Responsibilities You Always Keep",
+    "definition": "Under the shared responsibility model, no matter which service type (on-premises, IaaS, PaaS or SaaS), the customer is always responsible for: the information and data stored in the cloud, the devices allowed to connect, and the accounts and identities of people, services and devices.",
+    "analogy": "Even in a fully serviced hotel, you're responsible for your own valuables and who you give your room key to."
+  },
+  {
+    "id": "fc-cloud-25",
+    "domain": "cloud",
+    "term": "Total Cost of Ownership (TCO)",
+    "definition": "The full cost of a solution over its lifetime, including hardware, software, power, cooling, real estate, IT labor and maintenance, not just the purchase price. Comparing on-premises TCO with cloud costs often reveals hidden on-premises expenses.",
+    "analogy": "The price of a car is not its TCO: you also pay fuel, insurance and repairs. Azure's TCO Calculator estimates savings from moving servers to Azure."
+  }
+]

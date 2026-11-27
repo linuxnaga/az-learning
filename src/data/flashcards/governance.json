@@ -1,0 +1,219 @@
+[
+  {
+    "id": "fc-gov-1",
+    "domain": "governance",
+    "term": "Microsoft Cost Management",
+    "definition": "A set of tools to analyze, monitor and optimize Azure spending. It provides cost analysis, budgets with alerts, recommendations and exports. Related tools include the Pricing Calculator (estimate the cost of new resources) and the TCO Calculator (compare on-premises costs with Azure).",
+    "analogy": "A household budgeting app linked to your bank: it shows where the money went and pings you when you're at 80% of your monthly grocery budget. Set an Azure budget alert so the team hears about runaway spend before the invoice arrives."
+  },
+  {
+    "id": "fc-gov-2",
+    "domain": "governance",
+    "term": "Azure Policy",
+    "definition": "A service for creating, assigning and managing rules that enforce standards on resources, for example allowed regions, required tags or allowed VM sizes. Policies can deny non-compliant deployments, audit existing ones, or remediate them. Groups of policies are called initiatives. Policy governs what resources look like, not who can act.",
+    "analogy": "Building codes for your cloud city: no matter who the builder is, you cannot put up a house without fire exits. A policy can block anyone from deploying resources outside West Europe."
+  },
+  {
+    "id": "fc-gov-3",
+    "domain": "governance",
+    "term": "Role-Based Access Control (RBAC)",
+    "definition": "Azure RBAC controls who can do what on which resources. A role assignment combines a security principal (user, group, service principal or managed identity), a role definition (such as Owner, Contributor or Reader) and a scope (management group, subscription, resource group or resource). Permissions are inherited down the hierarchy. Grant the least privilege needed.",
+    "analogy": "Hotel key cards: housekeeping cards open guest rooms on one floor, the manager's card opens every room, and a guest's card opens only their own room. Give a developer Contributor on their team's resource group, not Owner on the whole subscription."
+  },
+  {
+    "id": "fc-gov-4",
+    "domain": "governance",
+    "term": "Resource Locks",
+    "definition": "Locks prevent accidental changes to resources, resource groups or subscriptions, and they apply to everyone, even Owners. CanNotDelete (shown as Delete) lets users read and modify but not delete. ReadOnly lets users read but not modify or delete. Locks are inherited, and a lock must be removed before the protected action can happen.",
+    "analogy": "A child-proof lock on the medicine cabinet: it doesn't matter who you are, you have to deliberately unlock it first. Put a Delete lock on the production database's resource group."
+  },
+  {
+    "id": "fc-gov-5",
+    "domain": "governance",
+    "term": "Azure Advisor",
+    "definition": "A free, personalized recommendation engine that analyzes your resource configuration and usage and suggests improvements in five categories: Reliability, Security, Performance, Cost and Operational Excellence.",
+    "analogy": "A financial advisor reviewing your accounts and saying: cancel that unused gym membership. Advisor might tell you a VM has averaged 3% CPU for two weeks and should be resized or shut down."
+  },
+  {
+    "id": "fc-gov-6",
+    "domain": "governance",
+    "term": "Azure Monitor",
+    "definition": "A comprehensive platform for collecting, analyzing and acting on metrics and logs from Azure, on-premises and other clouds. It includes Log Analytics for querying logs, Application Insights for application performance monitoring, and alerts with action groups. Azure Service Health, by contrast, reports on the health of Azure services themselves.",
+    "analogy": "The dashboard and warning lights in your car: speed, fuel, engine temperature, and a beep when something crosses a threshold. Set an alert to email on-call when web app response time exceeds 2 seconds."
+  },
+  {
+    "id": "fc-gov-7",
+    "domain": "governance",
+    "term": "Microsoft Entra ID",
+    "definition": "Microsoft's cloud-based identity and access management service (formerly Azure Active Directory). It provides authentication, single sign-on (SSO), multifactor authentication (MFA), Conditional Access and identity protection for Microsoft 365, Azure and thousands of SaaS apps. Entra Connect syncs on-premises AD identities to the cloud.",
+    "analogy": "A passport office for your organization: one trusted ID gets you through every border (app) you are allowed into, and suspicious travelers get extra checks (MFA) at the gate."
+  },
+  {
+    "id": "fc-gov-8",
+    "domain": "governance",
+    "term": "Zero Trust",
+    "definition": "A security model that assumes breach and treats every request as if it came from an uncontrolled network. Its three principles are: verify explicitly (authenticate and authorize using all available signals), use least privilege access (just-in-time and just-enough access), and assume breach (segment access and minimize blast radius).",
+    "analogy": "An airport where you show your boarding pass at every gate, not just at the entrance. Conditional Access in Entra ID requires MFA when someone signs in from an unknown device, even if their password is correct."
+  },
+  {
+    "id": "fc-gov-9",
+    "domain": "governance",
+    "term": "Defense in Depth",
+    "definition": "A layered security strategy so that if one layer is breached the next one still protects data. The layers are: physical security, identity and access, perimeter, network, compute, application, and data at the center.",
+    "analogy": "A medieval castle: moat, outer wall, inner wall, guards, and a locked vault holding the crown jewels. In Azure: datacenter security, Entra ID with MFA, Azure DDoS Protection and Firewall, network security groups, patched VMs, secure code, and encrypted data."
+  },
+  {
+    "id": "fc-gov-10",
+    "domain": "governance",
+    "term": "Factors That Affect Azure Costs",
+    "definition": "Key cost factors include: resource type and settings (size, tier), consumption (pay-as-you-go vs. reservations), maintenance (cleaning up unused resources), geography (prices differ by region), network traffic (outbound data transfer is billed, most inbound is free), subscription type, and Azure Marketplace purchases.",
+    "analogy": "Like a phone bill: the plan you choose, how much data you use, roaming abroad and extra app purchases all change the total. Moving a VM to a cheaper region or deleting orphaned disks lowers the bill."
+  },
+  {
+    "id": "fc-gov-11",
+    "domain": "governance",
+    "term": "Azure Reservations and Savings Options",
+    "definition": "Azure Reservations give a significant discount when you commit to one or three years of a resource such as VMs or SQL Database. Azure Hybrid Benefit lets you reuse existing Windows Server and SQL Server licenses with Software Assurance. Spot VMs use spare capacity at a deep discount but can be evicted.",
+    "analogy": "Buying an annual train pass instead of daily tickets (reservations), bringing your own coffee cup for a discount (Hybrid Benefit), and flying standby (Spot VMs)."
+  },
+  {
+    "id": "fc-gov-12",
+    "domain": "governance",
+    "term": "Pricing Calculator vs. TCO Calculator",
+    "definition": "The Pricing Calculator estimates the cost of Azure services you plan to deploy, based on options such as region, tier and usage. The TCO Calculator compares the total cost of running workloads on-premises with running them in Azure, including power, cooling, labor and datacenter costs.",
+    "analogy": "The Pricing Calculator is a menu with prices. The TCO Calculator compares the cost of cooking at home for a year, including groceries, gas and dishwashing time, against eating out."
+  },
+  {
+    "id": "fc-gov-13",
+    "domain": "governance",
+    "term": "Resource Tags",
+    "definition": "Name/value pairs (for example Department = Finance, Environment = Prod) attached to resources, resource groups and subscriptions. Tags help with cost reporting, operations, security classification and automation. Tags are not inherited automatically, but Azure Policy can enforce or inherit them.",
+    "analogy": "Colored labels on storage boxes. Filter your Azure bill by the CostCenter tag to see exactly what each department spends."
+  },
+  {
+    "id": "fc-gov-14",
+    "domain": "governance",
+    "term": "Microsoft Purview",
+    "definition": "A family of data governance, risk and compliance solutions that gives a unified view of your data across on-premises, multi-cloud and SaaS sources. It helps discover, classify and map data, track lineage, and manage risk and compliance.",
+    "analogy": "A librarian who catalogues every book in every branch, knows which ones are confidential, and tracks who borrowed what."
+  },
+  {
+    "id": "fc-gov-15",
+    "domain": "governance",
+    "term": "Azure Policy Effects and Initiatives",
+    "definition": "Each policy definition has an effect, such as Deny (block non-compliant deployments), Audit (log non-compliance), Append or Modify (change properties, such as adding a tag), and DeployIfNotExists. An initiative groups related policies to track compliance toward a larger goal. Policy can evaluate existing resources and remediate them.",
+    "analogy": "A building inspector who can refuse a permit (Deny), write up a violation (Audit) or install the missing smoke detector themselves (Modify)."
+  },
+  {
+    "id": "fc-gov-16",
+    "domain": "governance",
+    "term": "Service Trust Portal",
+    "definition": "A Microsoft site with content, tools and resources about Microsoft security, privacy and compliance practices, including independent audit reports (such as ISO and SOC) and compliance guides.",
+    "analogy": "The inspection certificates on a restaurant's wall: proof from independent auditors that the kitchen meets standards."
+  },
+  {
+    "id": "fc-gov-17",
+    "domain": "governance",
+    "term": "Azure Portal and Azure Cloud Shell",
+    "definition": "The Azure portal is a web-based console for building, managing and monitoring everything in Azure with a graphical interface. Azure Cloud Shell is a browser-based, already-authenticated shell that offers both Bash and PowerShell, with the Azure CLI and Azure PowerShell preinstalled.",
+    "analogy": "The portal is the dashboard of a car; Cloud Shell is a mechanic's toolbox that is already sitting in the passenger seat, so you never have to install anything."
+  },
+  {
+    "id": "fc-gov-18",
+    "domain": "governance",
+    "term": "Azure CLI vs. Azure PowerShell",
+    "definition": "Both are command-line tools to manage Azure resources and automate tasks, and both run on Windows, macOS and Linux. Azure CLI uses Bash-style commands (az vm create). Azure PowerShell uses cmdlets in a verb-noun format (New-AzVM). Functionally they cover the same tasks; choose based on your preferred shell.",
+    "analogy": "Two languages for ordering the same meal. 'az group create' and 'New-AzResourceGroup' both create a resource group."
+  },
+  {
+    "id": "fc-gov-19",
+    "domain": "governance",
+    "term": "Infrastructure as Code: ARM Templates and Bicep",
+    "definition": "Infrastructure as code means describing infrastructure in files so it can be deployed repeatably. ARM templates are declarative JSON files; Bicep is a simpler declarative language that compiles to ARM. Deployments are idempotent (re-running gives the same result), resources deploy in parallel where possible, and templates validate before deploying.",
+    "analogy": "A recipe card instead of cooking from memory: anyone can follow it and get the same dish every time. Deploy identical dev, test and prod environments from one Bicep file."
+  },
+  {
+    "id": "fc-gov-20",
+    "domain": "governance",
+    "term": "Azure Service Health",
+    "definition": "A personalized view of the health of the Azure services and regions you use. It has three parts: Azure status (global status of all Azure services), Service Health (outages, planned maintenance and advisories affecting your services and regions), and Resource Health (health of your individual resources).",
+    "analogy": "Azure status is the public news report about traffic jams; Service Health is a traffic alert for your commute; Resource Health is the warning light on your own car."
+  },
+  {
+    "id": "fc-gov-21",
+    "domain": "governance",
+    "term": "Log Analytics",
+    "definition": "A tool in the Azure portal for writing and running log queries against data collected by Azure Monitor. Queries use the Kusto Query Language (KQL) to filter, analyze and chart log data.",
+    "analogy": "A powerful search engine for your system's diary. Ask: 'show every failed login in the last 24 hours, grouped by country'."
+  },
+  {
+    "id": "fc-gov-22",
+    "domain": "governance",
+    "term": "Azure Monitor Alerts and Action Groups",
+    "definition": "Alerts proactively notify you when Azure Monitor detects a condition in metric or log data, such as CPU above 90%. Action groups define what happens when an alert fires: email, SMS, push notification, voice call, webhook, Logic App, Azure Function or runbook.",
+    "analogy": "A smoke detector (alert) wired to call the fire department and text your phone (action group)."
+  },
+  {
+    "id": "fc-gov-23",
+    "domain": "governance",
+    "term": "Application Insights",
+    "definition": "A feature of Azure Monitor for application performance monitoring (APM). It tracks request rates, response times, failure rates, dependencies, page views and exceptions for web apps, whether they run in Azure, on-premises or in another cloud. It can also send synthetic availability tests.",
+    "analogy": "A fitness tracker for your web app: heart rate (requests), sleep (downtime) and alerts when something looks wrong."
+  },
+  {
+    "id": "fc-gov-24",
+    "domain": "governance",
+    "term": "Authentication vs. Authorization",
+    "definition": "Authentication (AuthN) proves who you are, for example with a password, MFA or certificate. Authorization (AuthZ) decides what an authenticated identity is allowed to do, for example through RBAC role assignments.",
+    "analogy": "Authentication is showing your passport at the airport. Authorization is your boarding pass deciding which plane and seat you can use."
+  },
+  {
+    "id": "fc-gov-25",
+    "domain": "governance",
+    "term": "Single Sign-On and Multifactor Authentication",
+    "definition": "Single sign-on (SSO) lets users sign in once with one identity to access many applications. Multifactor authentication (MFA) requires two or more of: something you know (password), something you have (phone, key) and something you are (biometrics).",
+    "analogy": "SSO is a single wristband that gets you into every ride at the theme park. MFA is a bank vault needing both a key and a fingerprint."
+  },
+  {
+    "id": "fc-gov-26",
+    "domain": "governance",
+    "term": "Passwordless Authentication",
+    "definition": "Sign-in methods that remove the password entirely, replacing it with something you have plus something you are or know. Microsoft options include Windows Hello for Business, the Microsoft Authenticator app and FIDO2 security keys.",
+    "analogy": "Unlocking your phone with your face instead of typing a code. A FIDO2 USB key plus a PIN signs you in to Azure."
+  },
+  {
+    "id": "fc-gov-27",
+    "domain": "governance",
+    "term": "External Identities (B2B and B2C)",
+    "definition": "Microsoft Entra External ID lets people outside your organization access your apps. B2B collaboration lets partners and guests sign in with their own work, school or social identities to your apps and resources. B2C-style customer identity lets you build sign-up and sign-in experiences for consumer apps.",
+    "analogy": "Giving a visiting consultant a guest badge tied to their own company ID (B2B), versus letting shoppers create a loyalty account on your store's website (B2C)."
+  },
+  {
+    "id": "fc-gov-28",
+    "domain": "governance",
+    "term": "Microsoft Entra Domain Services",
+    "definition": "A managed domain service providing traditional Active Directory features such as domain join, Group Policy, LDAP and Kerberos/NTLM authentication, without deploying or patching domain controllers. Useful for lifting legacy apps into Azure.",
+    "analogy": "A managed, rent-a-receptionist for old-fashioned apps that still expect a classic front desk with a sign-in ledger."
+  },
+  {
+    "id": "fc-gov-29",
+    "domain": "governance",
+    "term": "Conditional Access",
+    "definition": "A Microsoft Entra ID feature that uses signals, such as user or group, location, device, application and sign-in risk, to make access decisions: allow access, require MFA, or block. It is a core tool of Zero Trust.",
+    "analogy": "A nightclub door policy: regulars get in, unknown faces show ID, and anyone causing trouble is turned away. Require MFA when someone signs in from a new country."
+  },
+  {
+    "id": "fc-gov-30",
+    "domain": "governance",
+    "term": "Microsoft Defender for Cloud",
+    "definition": "A cloud security posture management (CSPM) and workload protection platform for Azure, hybrid and multi-cloud resources. It continuously assesses your configuration, gives a secure score and recommendations, and detects and alerts on threats to workloads such as VMs, databases and storage.",
+    "analogy": "A home security company that inspects your locks, gives you a safety score, suggests fixes, and monitors cameras for break-ins around the clock."
+  },
+  {
+    "id": "fc-gov-31",
+    "domain": "governance",
+    "term": "Azure Key Vault",
+    "definition": "A service to securely store and control access to secrets (passwords, connection strings, API keys), encryption keys and certificates, backed by hardware security modules, with access logging.",
+    "analogy": "A bank safe deposit box for your app's passwords: apps ask the vault for a secret at runtime instead of hard-coding it."
+  }
+]

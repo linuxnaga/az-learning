@@ -1,0 +1,247 @@
+[
+  {
+    "id": "fc-arch-1",
+    "domain": "architecture",
+    "term": "Regions and Region Pairs",
+    "definition": "An Azure region is a geographic area containing one or more datacenters connected by a low-latency network. Many regions are paired with another region in the same geography at least 300 miles away where possible, so that platform updates are rolled out to one at a time and recovery is prioritized during a broad outage.",
+    "analogy": "Like a bank having branches in two cities: if a disaster closes one, the other keeps your records safe. You choose regions to keep data close to users and to meet data residency rules."
+  },
+  {
+    "id": "fc-arch-2",
+    "domain": "architecture",
+    "term": "Availability Zones",
+    "definition": "Physically separate locations within an Azure region, each made up of one or more datacenters with independent power, cooling and networking. Zone-enabled regions have a minimum of three zones. Spreading resources across zones protects against a single datacenter failure.",
+    "analogy": "Three separate buildings on one campus, each with its own generator. If a fire knocks out one building, the other two keep running your zone-redundant VMs and storage."
+  },
+  {
+    "id": "fc-arch-3",
+    "domain": "architecture",
+    "term": "Resource Hierarchy: Management Groups, Subscriptions, Resource Groups",
+    "definition": "Resources (VMs, databases) live in exactly one Resource Group, a logical container sharing a lifecycle. Resource groups live in a Subscription, a unit of billing and access boundaries. Subscriptions can be organized under Management Groups so policies and RBAC apply to many subscriptions at once. Settings applied at a higher level are inherited below.",
+    "analogy": "A filing cabinet (management group) holds drawers (subscriptions), each with folders (resource groups), each with documents (resources). Deleting a folder throws away every document in it, so put resources with the same lifecycle in the same resource group."
+  },
+  {
+    "id": "fc-arch-4",
+    "domain": "architecture",
+    "term": "Virtual Machines vs. AKS",
+    "definition": "Azure Virtual Machines are IaaS: full control of the OS, ideal for lift-and-shift or custom software. Azure Kubernetes Service (AKS) is a managed Kubernetes service for orchestrating containerized microservices; Azure manages the control plane and you manage your container workloads.",
+    "analogy": "A VM is renting a whole apartment and furnishing it yourself. AKS is a managed shipping port that loads, stacks and moves standard containers for you, restarting any that fall off the dock."
+  },
+  {
+    "id": "fc-arch-5",
+    "domain": "architecture",
+    "term": "App Service vs. Azure Functions",
+    "definition": "Azure App Service is a PaaS for hosting web apps, REST APIs and mobile back ends with built-in scaling, deployment slots and patching. Azure Functions is serverless, event-driven compute: code runs in response to a trigger (HTTP request, queue message, timer) and on the Consumption plan you pay only while it executes.",
+    "analogy": "App Service is a shop that is always open. Functions is a vending machine that wakes up only when someone presses a button, such as resizing an image every time it lands in Blob Storage."
+  },
+  {
+    "id": "fc-arch-6",
+    "domain": "architecture",
+    "term": "Virtual Network and Load Balancer",
+    "definition": "An Azure Virtual Network (VNet) is your private network in Azure, enabling resources to talk to each other, to the internet and to on-premises networks. Subnets segment it, and VNet peering connects VNets. Azure Load Balancer distributes incoming traffic (Layer 4, TCP/UDP) across healthy VMs to improve availability.",
+    "analogy": "A VNet is a private office floor with locked doors between departments (subnets). The Load Balancer is the receptionist sending each visitor to whichever available colleague is free."
+  },
+  {
+    "id": "fc-arch-7",
+    "domain": "architecture",
+    "term": "VPN Gateway vs. ExpressRoute",
+    "definition": "A VPN Gateway sends encrypted traffic between Azure and on-premises over the public internet (site-to-site, point-to-site). ExpressRoute is a private, dedicated connection through a connectivity provider that does not traverse the public internet, offering higher reliability, consistent latency and higher bandwidth.",
+    "analogy": "VPN Gateway is an armored van driving on public highways. ExpressRoute is your own private railway track straight into the Azure datacenter."
+  },
+  {
+    "id": "fc-arch-8",
+    "domain": "architecture",
+    "term": "Azure Storage Services: Blob, Files, Disks",
+    "definition": "Blob Storage holds massive amounts of unstructured object data (images, video, backups) accessed over HTTP/HTTPS. Azure Files provides fully managed file shares over SMB or NFS that can be mounted by cloud or on-premises machines. Azure Disks are block-level managed disks attached to Azure VMs.",
+    "analogy": "Blob is a giant warehouse of labeled boxes, Files is a shared network drive everyone in the office maps as Z:, and Disks are the hard drives plugged directly into each VM."
+  },
+  {
+    "id": "fc-arch-9",
+    "domain": "architecture",
+    "term": "Blob Access Tiers: Hot, Cool, Cold, Archive",
+    "definition": "Hot is for frequently accessed data (highest storage cost, lowest access cost). Cool is for infrequently accessed data stored at least 30 days. Cold is for rarely accessed data stored at least 90 days. Archive is offline storage for data kept at least 180 days; it is the cheapest to store but must be rehydrated, which can take hours, before it can be read.",
+    "analogy": "Hot is your desk, Cool is the filing cabinet, Cold is the basement, and Archive is an off-site vault where you have to request a box and wait for delivery. Compliance logs you must keep for 7 years belong in Archive."
+  },
+  {
+    "id": "fc-arch-10",
+    "domain": "architecture",
+    "term": "Sovereign Regions",
+    "definition": "Instances of Azure that are physically and logically isolated from the main public Azure cloud for compliance or legal reasons. Examples are Azure Government (for US government agencies and partners, operated by screened US personnel) and Azure in China, operated by 21Vianet.",
+    "analogy": "A separate, guarded government wing of an airport with its own security staff. US agencies deploy into Azure Government regions such as US Gov Virginia."
+  },
+  {
+    "id": "fc-arch-11",
+    "domain": "architecture",
+    "term": "Zonal vs. Zone-Redundant Services",
+    "definition": "Zonal services are pinned to a specific Availability Zone you choose, such as a VM or managed disk. Zone-redundant services are automatically replicated across zones by the platform, such as zone-redundant storage or SQL Database. Non-regional services, such as Microsoft Entra ID, are always available across Azure geographies.",
+    "analogy": "Zonal is booking a seat in a specific carriage. Zone-redundant is the railway automatically keeping a copy of your luggage in every carriage."
+  },
+  {
+    "id": "fc-arch-12",
+    "domain": "architecture",
+    "term": "Management Groups",
+    "definition": "Containers above subscriptions that let you apply governance (Azure Policy, RBAC) to many subscriptions at once. Settings are inherited by everything below. A hierarchy supports up to six levels of depth below the root, and each management group or subscription has exactly one parent.",
+    "analogy": "Company-wide HR rules set at headquarters apply automatically to every branch office. Assign an 'allowed regions' policy to the Production management group and every production subscription inherits it."
+  },
+  {
+    "id": "fc-arch-13",
+    "domain": "architecture",
+    "term": "Azure Subscription",
+    "definition": "A logical unit of Azure services linked to an Azure account. It acts as a billing boundary (separate invoices and cost reports) and an access control boundary (separate access policies). Organizations often create separate subscriptions for environments, departments or teams.",
+    "analogy": "Separate utility meters for each apartment in a building: each tenant gets their own bill and their own key."
+  },
+  {
+    "id": "fc-arch-14",
+    "domain": "architecture",
+    "term": "Resource Group Rules",
+    "definition": "Every resource must be in exactly one resource group. Resource groups cannot be nested. Resources can be moved between groups. A resource group's location only stores its metadata; the resources inside can live in other regions. Deleting a group deletes everything in it.",
+    "analogy": "A project folder: each document is in one folder, folders don't go inside other folders here, and shredding the folder shreds its contents."
+  },
+  {
+    "id": "fc-arch-15",
+    "domain": "architecture",
+    "term": "Azure Resource Manager (ARM)",
+    "definition": "The deployment and management service for Azure. Every request from the portal, CLI, PowerShell, REST API or SDKs goes through ARM, which authenticates and authorizes it and then sends it to the right service. It enables templates, tags, locks, RBAC and dependency handling.",
+    "analogy": "The single front desk of a large hotel: whether you phone, email or walk in, every request goes through the same desk, which checks who you are before passing it on."
+  },
+  {
+    "id": "fc-arch-16",
+    "domain": "architecture",
+    "term": "Virtual Machine Scale Sets",
+    "definition": "A service that lets you create and manage a group of identical, load-balanced VMs. The number of instances can automatically increase or decrease in response to demand or a schedule.",
+    "analogy": "A fleet of identical delivery vans where the dispatcher automatically adds vans at holiday time and parks them in January."
+  },
+  {
+    "id": "fc-arch-17",
+    "domain": "architecture",
+    "term": "Availability Sets",
+    "definition": "A logical grouping of VMs that spreads them across fault domains (separate power and network hardware within a datacenter) and update domains (groups rebooted at different times during planned maintenance). Availability sets have no extra cost; you pay only for the VMs.",
+    "analogy": "Not putting all your eggs in one basket and not washing every basket at the same time. With VMs in different update domains, maintenance never reboots all of them at once."
+  },
+  {
+    "id": "fc-arch-18",
+    "domain": "architecture",
+    "term": "Azure Virtual Desktop",
+    "definition": "A desktop and application virtualization service running in Azure. Users access a full Windows desktop or individual apps from any device, while data stays in the cloud. It supports multi-session Windows 10/11 Enterprise.",
+    "analogy": "Streaming a video game from the cloud: the heavy work happens in the datacenter, and your laptop just shows the screen. Contractors use their own laptops without company data ever touching them."
+  },
+  {
+    "id": "fc-arch-19",
+    "domain": "architecture",
+    "term": "Containers, ACI and Container Apps",
+    "definition": "Containers package an app with its dependencies and share the host OS kernel, so they start fast and are lightweight compared to VMs. Azure Container Instances (ACI) is the fastest, simplest way to run a container without managing servers. Azure Container Apps adds serverless autoscaling and load balancing for containerized apps, and AKS adds full Kubernetes orchestration.",
+    "analogy": "A VM is a whole house; a container is a furnished apartment in a shared building. ACI is a short-term rental you can move into instantly."
+  },
+  {
+    "id": "fc-arch-20",
+    "domain": "architecture",
+    "term": "VNet Peering",
+    "definition": "Connects two Azure virtual networks so resources in them can communicate privately. Traffic between peered networks travels over the Microsoft backbone, never the public internet. Global VNet peering connects VNets in different regions.",
+    "analogy": "A private covered walkway between two office buildings, so staff never have to step onto the public street."
+  },
+  {
+    "id": "fc-arch-21",
+    "domain": "architecture",
+    "term": "Network Security Groups (NSGs)",
+    "definition": "Filter network traffic to and from Azure resources in a virtual network using allow and deny rules based on source, destination, port and protocol. They can be applied to subnets or network interfaces.",
+    "analogy": "A bouncer with a guest list at each door: only traffic matching the rules gets in. Allow port 443 from the internet to the web subnet, and deny everything else."
+  },
+  {
+    "id": "fc-arch-22",
+    "domain": "architecture",
+    "term": "Azure DNS",
+    "definition": "A hosting service for DNS domains that uses Azure infrastructure to provide name resolution, managed with the same credentials, billing and RBAC as other Azure resources. It also supports private DNS zones for names inside your virtual networks. You cannot purchase domain names through Azure DNS itself.",
+    "analogy": "The phone book for your website: it turns www.contoso.com into an IP address. You buy the name elsewhere and host the phone book entries in Azure."
+  },
+  {
+    "id": "fc-arch-23",
+    "domain": "architecture",
+    "term": "ExpressRoute Global Reach",
+    "definition": "An ExpressRoute feature that connects your on-premises sites to each other through their ExpressRoute circuits over the Microsoft network, instead of over the public internet.",
+    "analogy": "Two branch offices sending documents through a private courier network instead of the public post. Your London and New York datacenters exchange traffic over Microsoft's backbone."
+  },
+  {
+    "id": "fc-arch-24",
+    "domain": "architecture",
+    "term": "VPN Gateway Types",
+    "definition": "Policy-based VPN gateways specify statically which traffic should be encrypted based on IP address combinations. Route-based gateways use routes in the IP routing table to direct traffic into tunnels and are preferred for point-to-site, VNet-to-VNet and multiple site-to-site connections. Gateways can be deployed active/active for higher availability.",
+    "analogy": "Policy-based is a fixed list of addresses that get the armored van. Route-based is a GPS that decides which road (tunnel) each package takes."
+  },
+  {
+    "id": "fc-arch-25",
+    "domain": "architecture",
+    "term": "Public vs. Private Endpoints",
+    "definition": "A public endpoint makes a service reachable over the internet through a public IP address. A private endpoint (Azure Private Link) gives a PaaS service, such as a storage account or SQL database, a private IP address inside your VNet, so traffic stays on the Microsoft network.",
+    "analogy": "A public endpoint is the shop's front door on the high street. A private endpoint is a staff-only entrance from inside your own building."
+  },
+  {
+    "id": "fc-arch-26",
+    "domain": "architecture",
+    "term": "Load Balancer vs. Application Gateway vs. Front Door",
+    "definition": "Azure Load Balancer distributes TCP/UDP traffic (Layer 4) within a region. Application Gateway is a regional Layer 7 web traffic load balancer that can route by URL path and includes an optional Web Application Firewall. Azure Front Door is a global Layer 7 entry point with acceleration, caching and WAF.",
+    "analogy": "Load Balancer is a traffic cop at one junction. Application Gateway reads the address on each letter and sends it to the right department. Front Door is a global airline hub routing travellers to the nearest airport."
+  },
+  {
+    "id": "fc-arch-27",
+    "domain": "architecture",
+    "term": "Storage Account",
+    "definition": "A container that groups Azure Storage data services (Blob, Files, Queues, Tables) and gives them a unique namespace reachable over HTTP/HTTPS. Names must be globally unique, 3 to 24 characters, lowercase letters and numbers only. Standard general-purpose v2 is the recommended type for most scenarios.",
+    "analogy": "A storage unit at a facility with its own unique number that anyone can address mail to: mystorage.blob.core.windows.net."
+  },
+  {
+    "id": "fc-arch-28",
+    "domain": "architecture",
+    "term": "Storage Redundancy: LRS and ZRS",
+    "definition": "Locally redundant storage (LRS) keeps three copies of data in a single datacenter in the primary region: lowest cost, but no protection from a datacenter disaster. Zone-redundant storage (ZRS) keeps three copies across three Availability Zones in the primary region, protecting against a datacenter failure.",
+    "analogy": "LRS is three photocopies in the same office drawer. ZRS is three photocopies in three different buildings on campus."
+  },
+  {
+    "id": "fc-arch-29",
+    "domain": "architecture",
+    "term": "Storage Redundancy: GRS, GZRS and Read Access",
+    "definition": "Geo-redundant storage (GRS) copies data three times in one datacenter (LRS) in the primary region, then asynchronously to a secondary region. Geo-zone-redundant storage (GZRS) uses ZRS in the primary region plus a copy in a secondary region. RA-GRS and RA-GZRS also let you read from the secondary region at any time.",
+    "analogy": "Keeping copies at home and another set in a safe deposit box in another city. With read-access, you can open the deposit box even while your house is fine."
+  },
+  {
+    "id": "fc-arch-30",
+    "domain": "architecture",
+    "term": "Queue and Table Storage",
+    "definition": "Azure Queue Storage holds large numbers of messages (up to 64 KB each) for asynchronous processing between application components. Azure Table Storage is a NoSQL key/attribute store for large amounts of structured, non-relational data.",
+    "analogy": "A queue is a ticket rail in a restaurant kitchen: orders wait until a cook picks them up. Table storage is a giant spreadsheet with no fixed columns."
+  },
+  {
+    "id": "fc-arch-31",
+    "domain": "architecture",
+    "term": "Azure Migrate",
+    "definition": "A unified hub for discovering, assessing and migrating on-premises servers, databases, web apps and virtual desktops to Azure, integrating Microsoft and partner tools and tracking progress in one place.",
+    "analogy": "A moving company that first surveys your house, estimates what fits in the truck, then moves everything and ticks it off a checklist."
+  },
+  {
+    "id": "fc-arch-32",
+    "domain": "architecture",
+    "term": "Azure Data Box",
+    "definition": "A physical device that Microsoft ships to you for offline transfer of large amounts of data (terabytes) into or out of Azure, when network transfer would be too slow, expensive or unavailable.",
+    "analogy": "Mailing a hard drive is faster than uploading a huge archive over a slow connection. Data Box is that drive, made rugged and encrypted."
+  },
+  {
+    "id": "fc-arch-33",
+    "domain": "architecture",
+    "term": "AzCopy, Storage Explorer and File Sync",
+    "definition": "AzCopy is a command-line tool to copy files and blobs to, from or between storage accounts. Azure Storage Explorer is a desktop GUI for managing storage data. Azure File Sync syncs Azure file shares with Windows Servers, which act as fast local caches.",
+    "analogy": "AzCopy is a moving van you drive by script, Storage Explorer is the file manager window, and File Sync is a local branch library that keeps copies of popular books from the central library."
+  },
+  {
+    "id": "fc-arch-34",
+    "domain": "architecture",
+    "term": "Azure Functions vs. Logic Apps",
+    "definition": "Azure Functions runs code you write (C#, JavaScript, Python and more) in response to triggers. Azure Logic Apps builds workflows with a low-code visual designer and hundreds of prebuilt connectors. Both are serverless and event-driven.",
+    "analogy": "Functions is hiring a programmer to write a custom script. Logic Apps is snapping together pre-made LEGO blocks: 'when an email arrives, save the attachment to SharePoint'."
+  },
+  {
+    "id": "fc-arch-35",
+    "domain": "architecture",
+    "term": "Azure Batch",
+    "definition": "A service for running large-scale parallel and high-performance computing (HPC) jobs. It provisions and manages a pool of VMs, installs applications and schedules jobs across them.",
+    "analogy": "Hiring a thousand temporary workers for one weekend to process a mountain of paperwork, then sending them all home. Used for rendering, simulations and genomics."
+  }
+]

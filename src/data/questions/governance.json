@@ -1,0 +1,1054 @@
+[
+  {
+    "id": "q-gov-1",
+    "domain": "governance",
+    "tags": [],
+    "question": "Your organization must ensure that resources can only be deployed to the East US and West Europe regions across all subscriptions. What should you use?",
+    "options": [
+      "Azure RBAC",
+      "Resource locks",
+      "Azure Policy",
+      "Azure Advisor"
+    ],
+    "answer": 2,
+    "explanation": "Azure Policy enforces rules about resource properties, such as allowed locations, and can deny non-compliant deployments. Assigning it at a management group applies it to all subscriptions below. RBAC controls who can act, not what resources look like."
+  },
+  {
+    "id": "q-gov-2",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "A contractor needs to manage VMs in one resource group but must not be able to grant access to other users. Following least privilege, which built-in role should you assign, and at which scope?",
+    "options": [
+      "Owner at the subscription",
+      "Contributor at the resource group",
+      "Reader at the resource group",
+      "User Access Administrator at the subscription"
+    ],
+    "answer": 1,
+    "explanation": "Contributor can create and manage resources but cannot assign roles. Scoping it to the single resource group follows least privilege. Owner can also grant access, Reader cannot make changes, and User Access Administrator manages access rather than resources."
+  },
+  {
+    "id": "q-gov-3",
+    "domain": "governance",
+    "tags": [],
+    "question": "You want to prevent anyone, including subscription Owners, from accidentally deleting a production database, while still allowing its configuration to be changed. What should you apply?",
+    "options": [
+      "A ReadOnly resource lock",
+      "A CanNotDelete (Delete) resource lock",
+      "An Azure Policy with the Audit effect",
+      "A Reader role assignment"
+    ],
+    "answer": 1,
+    "explanation": "A CanNotDelete lock allows reading and modifying a resource but blocks deletion for all users, including Owners, until the lock is removed. A ReadOnly lock would also block configuration changes."
+  },
+  {
+    "id": "q-gov-4",
+    "domain": "governance",
+    "tags": [],
+    "question": "Which Azure service provides free, personalized recommendations across reliability, security, performance, cost and operational excellence, such as resizing underused VMs?",
+    "options": [
+      "Azure Monitor",
+      "Azure Advisor",
+      "Microsoft Defender for Cloud",
+      "Azure Service Health"
+    ],
+    "answer": 1,
+    "explanation": "Azure Advisor analyzes your configuration and usage telemetry and gives best-practice recommendations in those five categories. Azure Monitor collects metrics and logs, and Service Health reports on the health of Azure services."
+  },
+  {
+    "id": "q-gov-5",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "Your company wants users to sign in once to access Microsoft 365, Azure and third-party SaaS apps, with MFA required for risky sign-ins. Which service provides this?",
+    "options": [
+      "Microsoft Entra ID",
+      "Azure Key Vault",
+      "Azure Firewall",
+      "Azure Policy"
+    ],
+    "answer": 0,
+    "explanation": "Microsoft Entra ID (formerly Azure Active Directory) is the cloud identity service providing single sign-on, multifactor authentication and Conditional Access for Microsoft and third-party apps."
+  },
+  {
+    "id": "q-gov-6",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "Which statement best describes the Zero Trust security model?",
+    "options": [
+      "Trust all devices inside the corporate network perimeter",
+      "Verify explicitly, use least privilege access, and assume breach",
+      "Rely on a strong firewall as the single line of defense",
+      "Grant administrators permanent access to all resources"
+    ],
+    "answer": 1,
+    "explanation": "Zero Trust assumes breach and verifies every request as though it came from an open network. Its guiding principles are verify explicitly, use least privilege access, and assume breach. Trusting the network perimeter is the traditional model Zero Trust replaces."
+  },
+  {
+    "id": "q-gov-7",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "In the defense-in-depth model, which layer is at the center and is ultimately being protected by all the other layers?",
+    "options": [
+      "Network",
+      "Identity and access",
+      "Data",
+      "Perimeter"
+    ],
+    "answer": 2,
+    "explanation": "Defense in depth wraps data, at the center, in layers: physical security, identity and access, perimeter, network, compute, application, and finally data. If an attacker breaches one layer, the next layer still protects the data."
+  },
+  {
+    "id": "q-gov-8",
+    "domain": "governance",
+    "tags": [],
+    "question": "Your manager wants an email notification when the monthly Azure spending for a subscription reaches 80% of a set amount. What should you configure?",
+    "options": [
+      "A budget in Microsoft Cost Management",
+      "The Azure Pricing Calculator",
+      "The TCO Calculator",
+      "An Azure Advisor recommendation"
+    ],
+    "answer": 0,
+    "explanation": "Budgets in Microsoft Cost Management let you set a spending threshold and send alerts when actual or forecasted cost reaches percentages of it. The Pricing and TCO calculators estimate costs before deployment; they don't monitor spending."
+  },
+  {
+    "id": "q-gov-9",
+    "domain": "governance",
+    "tags": [],
+    "question": "Which factor generally does NOT increase your Azure bill?",
+    "options": [
+      "Choosing a larger VM size",
+      "Outbound data transfer out of Azure regions",
+      "Most inbound data transfer into Azure",
+      "Running resources in a more expensive region"
+    ],
+    "answer": 2,
+    "explanation": "Most inbound (ingress) data transfer into Azure is free. Outbound (egress) traffic, larger resource sizes and more expensive regions all increase cost."
+  },
+  {
+    "id": "q-gov-10",
+    "domain": "governance",
+    "tags": [],
+    "question": "Why might the same VM size cost different amounts in two Azure regions?",
+    "options": [
+      "Prices vary by geography because of local costs such as power, labor and taxes",
+      "The VM is faster in one region",
+      "Region pairs double the price",
+      "Prices are random"
+    ],
+    "answer": 0,
+    "explanation": "Geography affects cost. Azure prices differ between regions because of variations in infrastructure, power, labor and tax costs."
+  },
+  {
+    "id": "q-gov-11",
+    "domain": "governance",
+    "tags": [],
+    "question": "Your company will run a set of VMs continuously for the next three years. Which option offers the largest discount compared to pay-as-you-go?",
+    "options": [
+      "Azure Reservations (3-year term)",
+      "Spot VMs",
+      "Moving VMs to the Archive tier",
+      "Using resource tags"
+    ],
+    "answer": 0,
+    "explanation": "Azure Reservations offer significant discounts when you commit to one or three years for predictable, steady workloads. Spot VMs are cheap but can be evicted, so they aren't suitable for always-on production."
+  },
+  {
+    "id": "q-gov-12",
+    "domain": "governance",
+    "tags": [],
+    "question": "You already own Windows Server licenses with Software Assurance. Which Azure offer lets you reuse them to reduce VM costs?",
+    "options": [
+      "Azure Hybrid Benefit",
+      "Azure Reservations",
+      "Spot pricing",
+      "The TCO Calculator"
+    ],
+    "answer": 0,
+    "explanation": "Azure Hybrid Benefit lets you use existing on-premises Windows Server and SQL Server licenses with Software Assurance on Azure, so you pay only the base compute rate."
+  },
+  {
+    "id": "q-gov-13",
+    "domain": "governance",
+    "tags": [],
+    "question": "You need cheap compute for a batch job that can be interrupted at any time. Which option is most cost-effective?",
+    "options": [
+      "Azure Spot Virtual Machines",
+      "Reserved instances",
+      "Premium SSD disks",
+      "Dedicated hosts"
+    ],
+    "answer": 0,
+    "explanation": "Spot VMs use spare Azure capacity at deep discounts, but Azure can evict them when it needs the capacity back. They're ideal for interruptible workloads like batch processing and testing."
+  },
+  {
+    "id": "q-gov-14",
+    "domain": "governance",
+    "tags": [],
+    "question": "Before deploying, you want to estimate the monthly cost of two VMs, a SQL database and a storage account in West Europe. Which tool should you use?",
+    "options": [
+      "Azure Pricing Calculator",
+      "TCO Calculator",
+      "Azure Advisor",
+      "Microsoft Cost Management cost analysis"
+    ],
+    "answer": 0,
+    "explanation": "The Pricing Calculator estimates the cost of Azure services you plan to provision, based on region, tier and usage options."
+  },
+  {
+    "id": "q-gov-15",
+    "domain": "governance",
+    "tags": [],
+    "question": "Your CFO wants to compare the cost of running your current on-premises datacenter with the cost of running the same workloads in Azure. Which tool should you use?",
+    "options": [
+      "TCO Calculator",
+      "Pricing Calculator",
+      "Azure Service Health",
+      "Azure Monitor"
+    ],
+    "answer": 0,
+    "explanation": "The Total Cost of Ownership (TCO) Calculator compares on-premises infrastructure costs, including hardware, power, cooling and labor, with the estimated cost of running in Azure."
+  },
+  {
+    "id": "q-gov-16",
+    "domain": "governance",
+    "tags": [],
+    "question": "You want to see which resource groups and services are driving your Azure spending this month, broken down by day. Which feature should you use?",
+    "options": [
+      "Cost analysis in Microsoft Cost Management",
+      "The Pricing Calculator",
+      "Azure Service Health",
+      "Resource locks"
+    ],
+    "answer": 0,
+    "explanation": "Cost analysis in Microsoft Cost Management lets you explore and break down actual Azure spending by scope, resource group, service, tag and time period."
+  },
+  {
+    "id": "q-gov-17",
+    "domain": "governance",
+    "tags": [],
+    "question": "Which is a purpose of applying tags to Azure resources?",
+    "options": [
+      "To encrypt the resource",
+      "To group resources for cost reporting and management by attributes such as department or environment",
+      "To prevent the resource from being deleted",
+      "To move the resource to another region"
+    ],
+    "answer": 1,
+    "explanation": "Tags are name/value metadata used to organize resources for cost management, operations, security classification, governance and automation. They don't encrypt or lock resources."
+  },
+  {
+    "id": "q-gov-18",
+    "domain": "governance",
+    "tags": [],
+    "question": "You apply a tag to a resource group. What happens to the resources inside it?",
+    "options": [
+      "They automatically inherit the tag",
+      "They do not inherit the tag by default; you can use Azure Policy to enforce or inherit tags",
+      "They are deleted",
+      "They are moved to a new subscription"
+    ],
+    "answer": 1,
+    "explanation": "Resources do not inherit tags from their resource group or subscription by default. Azure Policy can be used to require tags or copy them from the resource group."
+  },
+  {
+    "id": "q-gov-19",
+    "domain": "governance",
+    "tags": [],
+    "question": "Your finance team needs every new resource to have a CostCenter tag, and deployments without it must fail. What should you use?",
+    "options": [
+      "Azure Policy with a Deny effect",
+      "A resource lock",
+      "Azure Advisor",
+      "Azure Monitor alerts"
+    ],
+    "answer": 0,
+    "explanation": "Azure Policy can require a tag and deny any deployment that lacks it. Locks prevent deletion or changes, and Advisor only gives recommendations."
+  },
+  {
+    "id": "q-gov-20",
+    "domain": "governance",
+    "tags": [],
+    "question": "Which service helps an organization discover, classify and govern data across on-premises, multi-cloud and SaaS sources?",
+    "options": [
+      "Microsoft Purview",
+      "Azure Advisor",
+      "Azure DNS",
+      "Azure Batch"
+    ],
+    "answer": 0,
+    "explanation": "Microsoft Purview provides unified data governance and risk and compliance solutions, including data discovery, classification and lineage across many data sources."
+  },
+  {
+    "id": "q-gov-21",
+    "domain": "governance",
+    "tags": [],
+    "question": "What is an Azure Policy initiative?",
+    "options": [
+      "A single rule that blocks deletion",
+      "A collection of related policy definitions grouped to achieve a larger compliance goal",
+      "A budget alert",
+      "A type of RBAC role"
+    ],
+    "answer": 1,
+    "explanation": "An initiative (policy set) groups related policy definitions so they can be assigned and tracked together, for example all the policies needed for a regulatory standard."
+  },
+  {
+    "id": "q-gov-22",
+    "domain": "governance",
+    "tags": [],
+    "question": "Which Azure Policy effect records non-compliant resources in the activity log without blocking them?",
+    "options": [
+      "Deny",
+      "Audit",
+      "Delete",
+      "Lock"
+    ],
+    "answer": 1,
+    "explanation": "The Audit effect creates a warning event for non-compliant resources and shows them in compliance reports, but doesn't stop the deployment. Deny blocks non-compliant requests."
+  },
+  {
+    "id": "q-gov-23",
+    "domain": "governance",
+    "tags": [],
+    "question": "You assign a new policy that requires storage accounts to use HTTPS. What happens to existing non-compliant storage accounts?",
+    "options": [
+      "They are deleted automatically",
+      "They are evaluated and reported as non-compliant, and can be fixed with remediation tasks",
+      "They are ignored forever",
+      "They are moved to another subscription"
+    ],
+    "answer": 1,
+    "explanation": "Azure Policy evaluates existing resources and reports their compliance. For policies with Modify or DeployIfNotExists effects, remediation tasks can bring existing resources into compliance."
+  },
+  {
+    "id": "q-gov-24",
+    "domain": "governance",
+    "tags": [],
+    "question": "What is the key difference between Azure Policy and Azure RBAC?",
+    "options": [
+      "Policy controls who can perform actions; RBAC controls resource properties",
+      "Policy controls resource properties and compliance; RBAC controls who can perform actions",
+      "They do exactly the same thing",
+      "Policy only applies to virtual machines"
+    ],
+    "answer": 1,
+    "explanation": "RBAC manages who has access and what actions they can perform. Azure Policy ensures resources comply with rules about their properties, regardless of who deploys them."
+  },
+  {
+    "id": "q-gov-25",
+    "domain": "governance",
+    "tags": [],
+    "question": "Which resource lock prevents users from deleting or modifying a resource, while still allowing them to read it?",
+    "options": [
+      "CanNotDelete (Delete)",
+      "ReadOnly",
+      "Audit",
+      "Deny"
+    ],
+    "answer": 1,
+    "explanation": "A ReadOnly lock allows reading but prevents all modification and deletion. CanNotDelete allows changes but prevents deletion."
+  },
+  {
+    "id": "q-gov-26",
+    "domain": "governance",
+    "tags": [],
+    "question": "An Owner needs to delete a resource that has a CanNotDelete lock. What must happen first?",
+    "options": [
+      "Nothing, Owners bypass locks",
+      "The lock must be removed",
+      "The resource must be moved to another region",
+      "An Azure Policy must be assigned"
+    ],
+    "answer": 1,
+    "explanation": "Locks apply to everyone, including Owners. To delete a locked resource, a user with permission to manage locks must first remove the lock."
+  },
+  {
+    "id": "q-gov-27",
+    "domain": "governance",
+    "tags": [],
+    "question": "You place a ReadOnly lock on a resource group. What happens to the resources inside it?",
+    "options": [
+      "Nothing, locks don't apply to child resources",
+      "The resources inherit the lock and can't be modified or deleted",
+      "Only virtual machines are locked",
+      "The resources are deleted"
+    ],
+    "answer": 1,
+    "explanation": "Locks are inherited. A lock applied at a subscription or resource group applies to all resources within that scope."
+  },
+  {
+    "id": "q-gov-28",
+    "domain": "governance",
+    "tags": [],
+    "question": "Where can you find Microsoft's independent audit reports, such as ISO 27001 and SOC reports, for Azure?",
+    "options": [
+      "The Service Trust Portal",
+      "Azure Advisor",
+      "Azure Monitor",
+      "Cost Management"
+    ],
+    "answer": 0,
+    "explanation": "The Service Trust Portal provides Microsoft's security, privacy and compliance information, including independent audit reports and compliance guides."
+  },
+  {
+    "id": "q-gov-29",
+    "domain": "governance",
+    "tags": [],
+    "question": "An administrator needs to run Azure CLI commands from a browser without installing anything locally. What should they use?",
+    "options": [
+      "Azure Cloud Shell",
+      "Azure Data Box",
+      "Azure Arc",
+      "Azure Storage Explorer"
+    ],
+    "answer": 0,
+    "explanation": "Azure Cloud Shell is a browser-based, already-authenticated shell offering Bash and PowerShell, with the Azure CLI and Azure PowerShell preinstalled."
+  },
+  {
+    "id": "q-gov-30",
+    "domain": "governance",
+    "tags": [],
+    "question": "Which statement about Azure CLI and Azure PowerShell is correct?",
+    "options": [
+      "Azure CLI only runs on Linux",
+      "Azure PowerShell only runs on Windows",
+      "Both are cross-platform and can manage Azure resources",
+      "Only Azure PowerShell can create virtual machines"
+    ],
+    "answer": 2,
+    "explanation": "Both Azure CLI and Azure PowerShell are cross-platform (Windows, macOS, Linux) and offer broadly equivalent functionality for managing Azure."
+  },
+  {
+    "id": "q-gov-31",
+    "domain": "governance",
+    "tags": [],
+    "question": "Which command-line tool uses cmdlets with a verb-noun syntax, such as New-AzVM?",
+    "options": [
+      "Azure PowerShell",
+      "Azure CLI",
+      "AzCopy",
+      "Bicep CLI"
+    ],
+    "answer": 0,
+    "explanation": "Azure PowerShell uses cmdlets in a verb-noun format (New-AzResourceGroup, Get-AzVM). Azure CLI uses commands like az vm create."
+  },
+  {
+    "id": "q-gov-32",
+    "domain": "governance",
+    "tags": [],
+    "question": "Which tool provides a web-based graphical interface for creating, managing and monitoring Azure resources?",
+    "options": [
+      "Azure portal",
+      "Azure CLI",
+      "Azure PowerShell",
+      "AzCopy"
+    ],
+    "answer": 0,
+    "explanation": "The Azure portal is a web-based, unified console for building, managing and monitoring Azure resources through a graphical interface, with customizable dashboards."
+  },
+  {
+    "id": "q-gov-33",
+    "domain": "governance",
+    "tags": [],
+    "question": "Your team wants to deploy identical dev, test and production environments repeatedly from source-controlled files. Which approach should you use?",
+    "options": [
+      "Infrastructure as code with ARM templates or Bicep",
+      "Creating resources manually in the portal",
+      "Azure Advisor recommendations",
+      "Resource locks"
+    ],
+    "answer": 0,
+    "explanation": "Infrastructure as code (ARM templates or Bicep) describes infrastructure declaratively in files that can be version-controlled and deployed repeatably and consistently."
+  },
+  {
+    "id": "q-gov-34",
+    "domain": "governance",
+    "tags": [],
+    "question": "What does it mean that ARM template deployments are idempotent?",
+    "options": [
+      "They can only be deployed once",
+      "Deploying the same template multiple times produces the same resources in the same state",
+      "They delete all existing resources",
+      "They only work in one region"
+    ],
+    "answer": 1,
+    "explanation": "Idempotent means you can deploy the same template repeatedly and get the same result, so templates can be re-run safely to bring an environment to the desired state."
+  },
+  {
+    "id": "q-gov-35",
+    "domain": "governance",
+    "tags": [],
+    "question": "What is Bicep?",
+    "options": [
+      "A virtual machine size",
+      "A declarative language for deploying Azure resources that compiles to ARM templates",
+      "A monitoring dashboard",
+      "A storage redundancy option"
+    ],
+    "answer": 1,
+    "explanation": "Bicep is a domain-specific, declarative language for deploying Azure resources. It has a simpler syntax than JSON ARM templates and is transpiled to ARM JSON."
+  },
+  {
+    "id": "q-gov-36",
+    "domain": "governance",
+    "tags": [],
+    "question": "In which format are ARM templates written?",
+    "options": [
+      "JSON",
+      "YAML",
+      "XML",
+      "CSV"
+    ],
+    "answer": 0,
+    "explanation": "ARM templates are JavaScript Object Notation (JSON) files that declaratively define the infrastructure and configuration of an Azure deployment."
+  },
+  {
+    "id": "q-gov-37",
+    "domain": "governance",
+    "tags": [],
+    "question": "You need to be notified about planned maintenance and outages that affect the specific Azure services and regions you use. Which service should you use?",
+    "options": [
+      "Azure Service Health",
+      "Azure Advisor",
+      "Azure Policy",
+      "TCO Calculator"
+    ],
+    "answer": 0,
+    "explanation": "Azure Service Health provides personalized alerts and guidance about service issues, planned maintenance and health advisories affecting your services and regions."
+  },
+  {
+    "id": "q-gov-38",
+    "domain": "governance",
+    "tags": [],
+    "question": "Which component of Azure Service Health shows the health of your individual resources, such as a specific VM?",
+    "options": [
+      "Azure status",
+      "Service Health",
+      "Resource Health",
+      "Log Analytics"
+    ],
+    "answer": 2,
+    "explanation": "Resource Health shows the health of your individual cloud resources. Azure status shows the global status of all services, and Service Health focuses on services and regions you use."
+  },
+  {
+    "id": "q-gov-39",
+    "domain": "governance",
+    "tags": [],
+    "question": "Which page provides a broad, global view of the health of all Azure services across all regions?",
+    "options": [
+      "Azure status",
+      "Resource Health",
+      "Azure Advisor",
+      "Microsoft Cost Management"
+    ],
+    "answer": 0,
+    "explanation": "Azure status is a public page showing the global health of all Azure services in all regions. It isn't personalized to your subscriptions."
+  },
+  {
+    "id": "q-gov-40",
+    "domain": "governance",
+    "tags": [],
+    "question": "Which language do you use to query data in Log Analytics?",
+    "options": [
+      "Kusto Query Language (KQL)",
+      "SQL only",
+      "Python",
+      "PowerShell DSC"
+    ],
+    "answer": 0,
+    "explanation": "Log Analytics queries use the Kusto Query Language (KQL) to search, filter, aggregate and visualize log data collected by Azure Monitor."
+  },
+  {
+    "id": "q-gov-41",
+    "domain": "governance",
+    "tags": [],
+    "question": "You want to receive an SMS and trigger a webhook when a VM's CPU exceeds 90% for 10 minutes. What should you configure?",
+    "options": [
+      "An Azure Monitor alert rule with an action group",
+      "An Azure Policy initiative",
+      "A resource lock",
+      "Azure Advisor"
+    ],
+    "answer": 0,
+    "explanation": "Azure Monitor alert rules evaluate metric or log conditions, and action groups define notifications and automated actions like SMS, email, webhooks and runbooks."
+  },
+  {
+    "id": "q-gov-42",
+    "domain": "governance",
+    "tags": [],
+    "question": "Which Azure Monitor feature is designed to monitor the performance, failures and usage of web applications?",
+    "options": [
+      "Application Insights",
+      "Azure Advisor",
+      "Resource Health",
+      "Azure Policy"
+    ],
+    "answer": 0,
+    "explanation": "Application Insights is Azure Monitor's application performance monitoring feature. It tracks request rates, response times, exceptions, dependencies and page views."
+  },
+  {
+    "id": "q-gov-43",
+    "domain": "governance",
+    "tags": [],
+    "question": "Can Application Insights monitor web applications that run outside Azure?",
+    "options": [
+      "No, only apps in Azure App Service",
+      "Yes, it can monitor apps hosted in Azure, on-premises or in other clouds",
+      "Only apps on Linux",
+      "Only apps written in C#"
+    ],
+    "answer": 1,
+    "explanation": "Application Insights can monitor applications wherever they're hosted, as long as they can send telemetry, using SDKs or agents."
+  },
+  {
+    "id": "q-gov-44",
+    "domain": "governance",
+    "tags": [],
+    "question": "Which source can Azure Monitor collect data from?",
+    "options": [
+      "Only Azure virtual machines",
+      "Azure resources, on-premises machines and resources in other clouds",
+      "Only Microsoft 365",
+      "Only Azure SQL Database"
+    ],
+    "answer": 1,
+    "explanation": "Azure Monitor collects metrics and logs from applications, operating systems, Azure resources, subscriptions and tenants, including on-premises and multi-cloud sources through agents."
+  },
+  {
+    "id": "q-gov-45",
+    "domain": "governance",
+    "tags": [],
+    "question": "Azure Advisor recommends resizing a VM that has been underused. Which Advisor category does this recommendation belong to?",
+    "options": [
+      "Cost",
+      "Security",
+      "Reliability",
+      "Operational excellence"
+    ],
+    "answer": 0,
+    "explanation": "Recommendations to resize or shut down underutilized VMs help reduce spending, so they appear in Advisor's Cost category."
+  },
+  {
+    "id": "q-gov-46",
+    "domain": "governance",
+    "tags": [],
+    "question": "Which of the following is NOT one of Azure Advisor's recommendation categories?",
+    "options": [
+      "Reliability",
+      "Performance",
+      "Cost",
+      "Licensing"
+    ],
+    "answer": 3,
+    "explanation": "Advisor's five categories are Reliability, Security, Performance, Cost and Operational Excellence. Licensing isn't a category."
+  },
+  {
+    "id": "q-gov-47",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "What is the difference between authentication and authorization?",
+    "options": [
+      "Authentication determines access level; authorization proves identity",
+      "Authentication proves identity; authorization determines what an identity is allowed to do",
+      "They are the same thing",
+      "Authorization always happens first"
+    ],
+    "answer": 1,
+    "explanation": "Authentication (AuthN) verifies who someone is. Authorization (AuthZ) then determines what that authenticated identity can access and do."
+  },
+  {
+    "id": "q-gov-48",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "Which benefit does single sign-on (SSO) provide?",
+    "options": [
+      "Users sign in once and can access multiple applications without signing in again",
+      "It requires a different password for each app",
+      "It encrypts storage accounts",
+      "It blocks all external users"
+    ],
+    "answer": 0,
+    "explanation": "SSO lets users sign in once with one identity to access many applications, reducing password fatigue and making identity easier to manage and secure."
+  },
+  {
+    "id": "q-gov-49",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "Which combination is an example of multifactor authentication?",
+    "options": [
+      "A password and a security question",
+      "A password and a code from the Microsoft Authenticator app on a phone",
+      "Two different passwords",
+      "A username and a password"
+    ],
+    "answer": 1,
+    "explanation": "MFA requires factors from different categories: something you know (password), something you have (phone, key) and something you are (biometrics). A password plus a phone code combines two categories."
+  },
+  {
+    "id": "q-gov-50",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "Which of the following is a Microsoft passwordless authentication method?",
+    "options": [
+      "Windows Hello for Business",
+      "A longer password",
+      "SMS-only sign-in with a password",
+      "Security questions"
+    ],
+    "answer": 0,
+    "explanation": "Microsoft's passwordless options are Windows Hello for Business, the Microsoft Authenticator app and FIDO2 security keys. They replace the password with something you have plus biometrics or a PIN."
+  },
+  {
+    "id": "q-gov-51",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "Which device is an example of a FIDO2 passwordless authentication method?",
+    "options": [
+      "A USB security key",
+      "A printed password list",
+      "An email address",
+      "A smart TV"
+    ],
+    "answer": 0,
+    "explanation": "FIDO2 security keys, typically USB, NFC or Bluetooth devices, provide phishing-resistant, passwordless sign-in."
+  },
+  {
+    "id": "q-gov-52",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "Your company wants partner organizations' employees to access a shared SharePoint site using their own company credentials. Which capability should you use?",
+    "options": [
+      "Microsoft Entra B2B collaboration (External ID)",
+      "Azure Data Box",
+      "Resource locks",
+      "Azure Batch"
+    ],
+    "answer": 0,
+    "explanation": "B2B collaboration in Microsoft Entra External ID lets external users sign in to your apps and resources with their own identities as guest users."
+  },
+  {
+    "id": "q-gov-53",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "A legacy application requires LDAP, Kerberos authentication and domain join, but you don't want to manage domain controllers in Azure. What should you use?",
+    "options": [
+      "Microsoft Entra Domain Services",
+      "Azure Key Vault",
+      "Azure Policy",
+      "Azure DNS"
+    ],
+    "answer": 0,
+    "explanation": "Microsoft Entra Domain Services provides managed domain services such as domain join, Group Policy, LDAP and Kerberos/NTLM authentication without deploying, managing or patching domain controllers."
+  },
+  {
+    "id": "q-gov-54",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "Which tool synchronizes user identities from on-premises Active Directory to Microsoft Entra ID?",
+    "options": [
+      "Microsoft Entra Connect",
+      "Azure Migrate",
+      "Azure File Sync",
+      "AzCopy"
+    ],
+    "answer": 0,
+    "explanation": "Microsoft Entra Connect (and Connect cloud sync) synchronizes users, groups and password hashes from on-premises AD to Microsoft Entra ID, enabling hybrid identity."
+  },
+  {
+    "id": "q-gov-55",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "You want to require MFA only when users sign in from outside the corporate network or from an unmanaged device. What should you configure?",
+    "options": [
+      "Microsoft Entra Conditional Access",
+      "Azure Policy",
+      "A resource lock",
+      "A network security group"
+    ],
+    "answer": 0,
+    "explanation": "Conditional Access evaluates signals such as location, device state and sign-in risk to decide whether to allow access, require MFA or block it."
+  },
+  {
+    "id": "q-gov-56",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "Which signals can Conditional Access use to make an access decision?",
+    "options": [
+      "User or group membership, location, device and application",
+      "Only the user's password length",
+      "The VM size",
+      "The storage access tier"
+    ],
+    "answer": 0,
+    "explanation": "Conditional Access policies use signals including user or group, IP location, device platform and compliance, the application being accessed, and real-time sign-in risk."
+  },
+  {
+    "id": "q-gov-57",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "Which built-in Azure role allows a user to view resources but not change them?",
+    "options": [
+      "Reader",
+      "Contributor",
+      "Owner",
+      "User Access Administrator"
+    ],
+    "answer": 0,
+    "explanation": "Reader can view all resources but can't make changes. Contributor can manage resources but not access, and Owner has full access, including assigning roles."
+  },
+  {
+    "id": "q-gov-58",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "Which built-in role has full access to manage all resources, including the ability to assign roles to others?",
+    "options": [
+      "Owner",
+      "Contributor",
+      "Reader",
+      "Billing Reader"
+    ],
+    "answer": 0,
+    "explanation": "Owner has full access to all resources and can delegate access by assigning roles. Contributor can manage resources but cannot grant access."
+  },
+  {
+    "id": "q-gov-59",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "You assign a user the Contributor role at the subscription scope. Which resources can they manage?",
+    "options": [
+      "Only one resource group",
+      "All resource groups and resources in that subscription",
+      "Only resources in other subscriptions",
+      "No resources until a lock is applied"
+    ],
+    "answer": 1,
+    "explanation": "RBAC permissions are inherited down the hierarchy. A role assigned at the subscription scope applies to every resource group and resource in it."
+  },
+  {
+    "id": "q-gov-60",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "Which principle should guide the assignment of Azure RBAC roles?",
+    "options": [
+      "Give everyone the Owner role to avoid delays",
+      "Least privilege: grant only the access needed to do the job",
+      "Assign roles only at the management group level",
+      "Never use built-in roles"
+    ],
+    "answer": 1,
+    "explanation": "Least privilege means granting users only the permissions they need, at the narrowest scope necessary. It reduces risk if an account is compromised."
+  },
+  {
+    "id": "q-gov-61",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "Which Zero Trust principle is described as 'limit user access with just-in-time and just-enough-access'?",
+    "options": [
+      "Verify explicitly",
+      "Use least privilege access",
+      "Assume breach",
+      "Trust the network perimeter"
+    ],
+    "answer": 1,
+    "explanation": "Use least privilege access limits users to just-in-time and just-enough access, with risk-based adaptive policies and data protection."
+  },
+  {
+    "id": "q-gov-62",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "Which Zero Trust principle involves segmenting access and minimizing the blast radius of an attack?",
+    "options": [
+      "Verify explicitly",
+      "Use least privilege access",
+      "Assume breach",
+      "Implicit trust"
+    ],
+    "answer": 2,
+    "explanation": "Assume breach means designing as if an attacker is already inside: segment networks and access, use end-to-end encryption and analytics to detect threats, and minimize the blast radius."
+  },
+  {
+    "id": "q-gov-63",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "In the defense-in-depth model, network security groups and firewalls that filter traffic between subnets belong to which layer?",
+    "options": [
+      "Physical security",
+      "Network",
+      "Data",
+      "Application"
+    ],
+    "answer": 1,
+    "explanation": "The network layer limits communication between resources through segmentation and access controls such as NSGs, denying by default and restricting inbound internet access."
+  },
+  {
+    "id": "q-gov-64",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "In the defense-in-depth model, protecting against large-scale attacks such as DDoS at the edge of your network belongs to which layer?",
+    "options": [
+      "Perimeter",
+      "Compute",
+      "Data",
+      "Identity and access"
+    ],
+    "answer": 0,
+    "explanation": "The perimeter layer uses protection such as Azure DDoS Protection and perimeter firewalls to stop network-based attacks before they reach your resources."
+  },
+  {
+    "id": "q-gov-65",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "In the defense-in-depth model, controlling access with SSO, MFA and audit logging of sign-ins belongs to which layer?",
+    "options": [
+      "Identity and access",
+      "Physical security",
+      "Network",
+      "Compute"
+    ],
+    "answer": 0,
+    "explanation": "The identity and access layer controls access to infrastructure, uses SSO and MFA, and audits events and changes."
+  },
+  {
+    "id": "q-gov-66",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "In the defense-in-depth model, keeping VMs patched and securing access to them belongs to which layer?",
+    "options": [
+      "Compute",
+      "Perimeter",
+      "Physical security",
+      "Data"
+    ],
+    "answer": 0,
+    "explanation": "The compute layer secures access to virtual machines and keeps systems patched and current to protect against vulnerabilities."
+  },
+  {
+    "id": "q-gov-67",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "Which service provides a secure score and recommendations to improve the security posture of Azure, hybrid and multi-cloud resources?",
+    "options": [
+      "Microsoft Defender for Cloud",
+      "Azure Advisor's cost tab",
+      "Azure DNS",
+      "Microsoft Cost Management"
+    ],
+    "answer": 0,
+    "explanation": "Microsoft Defender for Cloud continuously assesses resources, gives a secure score and hardening recommendations, and provides threat protection for workloads across Azure, on-premises and other clouds."
+  },
+  {
+    "id": "q-gov-68",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "Can Microsoft Defender for Cloud protect resources outside Azure?",
+    "options": [
+      "No, only Azure resources",
+      "Yes, it can protect on-premises and multi-cloud resources, such as AWS and Google Cloud",
+      "Only Microsoft 365 resources",
+      "Only Linux servers"
+    ],
+    "answer": 1,
+    "explanation": "Defender for Cloud protects hybrid and multi-cloud environments: on-premises machines (through Azure Arc) and resources in AWS and Google Cloud."
+  },
+  {
+    "id": "q-gov-69",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "Developers are storing database connection strings in application code. Which service should they use to store these secrets securely?",
+    "options": [
+      "Azure Key Vault",
+      "Azure Blob Storage Hot tier",
+      "Azure DNS",
+      "Resource tags"
+    ],
+    "answer": 0,
+    "explanation": "Azure Key Vault securely stores and controls access to secrets, keys and certificates, so apps retrieve secrets at runtime rather than embedding them in code."
+  },
+  {
+    "id": "q-gov-70",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "Which service helps protect Azure resources from distributed denial-of-service attacks?",
+    "options": [
+      "Azure DDoS Protection",
+      "Azure Advisor",
+      "Azure Migrate",
+      "Azure File Sync"
+    ],
+    "answer": 0,
+    "explanation": "Azure DDoS Protection monitors traffic and automatically mitigates DDoS attacks against your public endpoints. It's part of the perimeter layer in defense in depth."
+  },
+  {
+    "id": "q-gov-71",
+    "domain": "governance",
+    "tags": [
+      "security"
+    ],
+    "question": "Which service is a managed, stateful, cloud-based network firewall that protects resources across virtual networks?",
+    "options": [
+      "Azure Firewall",
+      "Network security group",
+      "Azure Key Vault",
+      "Azure DNS"
+    ],
+    "answer": 0,
+    "explanation": "Azure Firewall is a managed, cloud-native network security service with built-in high availability and scalability, providing centralized filtering across VNets."
+  }
+]
