@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useReducer, useRef, useState } from 'react'
-import { ArrowRight, Award, BookOpen, Clock, LayoutDashboard, Layers, Swords, Trophy } from 'lucide-react'
+import { ArrowRight, Award, BookOpen, Clock, Library, LayoutDashboard, Layers, Swords, Trophy } from 'lucide-react'
 import Hud from './components/Hud'
 import BadgesModal from './components/BadgesModal'
 import Flashcards from './components/Flashcards'
 import QuizArena from './components/QuizArena'
+import QuestionBank from './components/QuestionBank'
 import Confetti from './components/Confetti'
 import { BADGE_ICONS, DOMAIN_STYLES } from './components/icons'
 import {
@@ -11,9 +12,10 @@ import {
 } from './lib/game'
 
 const MODES = [
-  { id: 'home', label: 'Dashboard', icon: LayoutDashboard },
-  { id: 'flashcards', label: 'Flashcards', icon: Layers },
-  { id: 'quiz', label: 'Quiz Arena', icon: Swords },
+  { id: 'home', label: 'Dashboard', short: 'Home', icon: LayoutDashboard },
+  { id: 'flashcards', label: 'Flashcards', short: 'Cards', icon: Layers },
+  { id: 'quiz', label: 'Quiz Arena', short: 'Quiz', icon: Swords },
+  { id: 'bank', label: 'Question Bank', short: 'Bank', icon: Library },
 ]
 
 export default function App() {
@@ -65,6 +67,7 @@ export default function App() {
   const onAnswer = useCallback((id, correct, combo) => dispatch({ type: 'ANSWER', id, correct, combo }), [])
   const onRoundEnd = useCallback((correct, total) => dispatch({ type: 'ROUND_END', correct, total }), [])
   const onRecharge = useCallback(() => dispatch({ type: 'RECHARGE' }), [])
+  const onRoundSize = useCallback((size) => dispatch({ type: 'SET_ROUND_SIZE', size }), [])
   const onReset = useCallback(() => {
     dispatch({ type: 'RESET' })
     setMode('home')
@@ -94,8 +97,8 @@ export default function App() {
 
       <main className="mx-auto max-w-6xl px-4 pt-6 sm:px-6">
         {/* Mode switcher + domain filter */}
-        <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-          <nav className="glass flex w-full rounded-2xl p-1 sm:inline-flex sm:w-auto sm:self-start" aria-label="Learning mode">
+        <div className="mb-6 flex flex-col gap-3">
+          <nav className="glass flex w-full overflow-x-auto rounded-2xl p-1 sm:inline-flex sm:w-auto sm:self-start" aria-label="Learning mode">
             {MODES.map((m) => (
               <button
                 key={m.id}
@@ -105,7 +108,9 @@ export default function App() {
                   mode === m.id ? 'bg-azure text-white shadow-lg shadow-azure/30' : 'text-slate-400 hover:text-white'
                 }`}
               >
-                <m.icon className="h-4 w-4" /> {m.label}
+                <m.icon className="h-4 w-4 shrink-0" />
+                <span className="sm:hidden">{m.short}</span>
+                <span className="hidden sm:inline">{m.label}</span>
               </button>
             ))}
           </nav>
@@ -124,6 +129,8 @@ export default function App() {
           <QuizArena
             state={state}
             domain={domain}
+            roundSize={state.settings.roundSize}
+            onRoundSize={onRoundSize}
             active={!badgesOpen}
             onAnswer={onAnswer}
             onRoundEnd={onRoundEnd}
@@ -133,6 +140,7 @@ export default function App() {
             onExit={() => switchMode('home')}
           />
         )}
+        {mode === 'bank' && <QuestionBank state={state} domain={domain} />}
       </main>
 
       <BadgesModal open={badgesOpen} onClose={closeBadges} unlocked={state.badges} stats={state.stats} onReset={onReset} />
@@ -225,10 +233,24 @@ function Dashboard({ state, domain, streak, onMode, onOpenBadges }) {
             accent="from-azure/30 to-emerald/10 border-azure/40"
             iconCls="bg-azure/25 text-sky-300"
             title="Gamified Quiz Arena"
-            text={`${qCount} exam-style scenario questions · +25 XP each · lose a heart when wrong.`}
+            text={`${qCount} exam-style scenario questions · rounds of 10, 20, 40 or all · +25 XP each · lose a heart when wrong.`}
             meta={<span>{state.hearts > 0 ? `${state.hearts} hearts ready` : 'Out of hearts: recharge first'}</span>}
           />
         </div>
+
+        <button
+          onClick={() => onMode('bank')}
+          className="glass flex w-full items-center gap-4 rounded-3xl p-5 text-left transition hover:border-cyan/40"
+        >
+          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-amber/15 text-amber">
+            <Library className="h-6 w-6" />
+          </div>
+          <div className="flex-1">
+            <p className="font-extrabold text-white">Browse the Question Bank</p>
+            <p className="text-sm text-slate-400">See all {qCount} questions with answers and explanations, search them, and filter by what you haven't solved yet.</p>
+          </div>
+          <ArrowRight className="h-5 w-5 text-cyan" />
+        </button>
       </div>
 
       <aside className="space-y-6">

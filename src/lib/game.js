@@ -66,8 +66,11 @@ export function initialState() {
       perfectRounds: 0,
     },
     badges: {},
+    settings: { roundSize: 10 },
   }
 }
+
+export const ROUND_SIZES = [10, 20, 40, 0] // 0 means every question in the selected domain
 
 export function loadState() {
   try {
@@ -75,7 +78,7 @@ export function loadState() {
     if (!raw) return initialState()
     const saved = JSON.parse(raw)
     const base = initialState()
-    return { ...base, ...saved, stats: { ...base.stats, ...saved.stats }, streak: { ...base.streak, ...saved.streak } }
+    return { ...base, ...saved, stats: { ...base.stats, ...saved.stats }, streak: { ...base.streak, ...saved.streak }, settings: { ...base.settings, ...saved.settings } }
   } catch {
     return initialState()
   }
@@ -152,6 +155,7 @@ export function shuffle(arr) {
 
 /** Build a quiz round. Questions never answered correctly are favoured. Options are shuffled. */
 export function buildRound(state, domainId, size = 10) {
+  if (!size) size = Infinity
   const pool = questions.filter((q) => !domainId || q.domain === domainId)
   const unseen = shuffle(pool.filter((q) => !state.correctIds[q.id]))
   const seen = shuffle(pool.filter((q) => state.correctIds[q.id]))
@@ -335,8 +339,10 @@ export function reducer(state, action) {
     case 'RECHARGE':
       if (!canRechargeToday(state)) return state
       return { ...state, hearts: MAX_HEARTS, heartProgress: 0, lastRecharge: todayKey() }
+    case 'SET_ROUND_SIZE':
+      return { ...state, settings: { ...state.settings, roundSize: action.size } }
     case 'RESET':
-      return initialState()
+      return { ...initialState(), settings: state.settings }
     default:
       return state
   }

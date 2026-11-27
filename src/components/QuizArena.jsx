@@ -2,12 +2,12 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import {
   ArrowRight, BatteryCharging, BookOpen, CheckCircle2, Flame, Heart, HeartCrack, HelpCircle, LayoutDashboard, RefreshCw, Target, Trophy, XCircle, Zap,
 } from 'lucide-react'
-import { XP_CORRECT, XP_PERFECT_ROUND, buildRound, canRechargeToday } from '../lib/game'
+import { ROUND_SIZES, XP_CORRECT, XP_PERFECT_ROUND, buildRound, canRechargeToday, questions } from '../lib/game'
 import { DOMAIN_STYLES } from './icons'
 
 const LETTERS = ['A', 'B', 'C', 'D']
 
-export default function QuizArena({ state, domain, active, onAnswer, onRoundEnd, onRecharge, onGoFlashcards, onCelebrate, onExit }) {
+export default function QuizArena({ state, domain, roundSize, onRoundSize, active, onAnswer, onRoundEnd, onRecharge, onGoFlashcards, onCelebrate, onExit }) {
   const [round, setRound] = useState(null)
   const [qIndex, setQIndex] = useState(0)
   const [selected, setSelected] = useState(null)
@@ -21,14 +21,14 @@ export default function QuizArena({ state, domain, active, onAnswer, onRoundEnd,
   stateRef.current = state
 
   const start = useCallback(() => {
-    setRound(buildRound(stateRef.current, domain))
+    setRound(buildRound(stateRef.current, domain, roundSize))
     setQIndex(0)
     setSelected(null)
     setResults([])
     setCombo(0)
     setBestCombo(0)
     setFinished(false)
-  }, [domain])
+  }, [domain, roundSize])
 
   useEffect(() => {
     start()
@@ -103,6 +103,7 @@ export default function QuizArena({ state, domain, active, onAnswer, onRoundEnd,
         hearts={state.hearts}
         onRetry={start}
         onExit={onExit}
+        picker={<RoundPicker domain={domain} state={state} roundSize={roundSize} onRoundSize={onRoundSize} locked={false} />}
         onGoFlashcards={onGoFlashcards}
       />
     )
@@ -114,6 +115,7 @@ export default function QuizArena({ state, domain, active, onAnswer, onRoundEnd,
 
   return (
     <div className="mx-auto max-w-3xl">
+      <RoundPicker domain={domain} state={state} roundSize={roundSize} onRoundSize={onRoundSize} locked={results.length > 0} />
       <div className="mb-3 flex items-center justify-between text-sm">
         <span className="font-semibold text-slate-400">
           Question <span className="text-white">{qIndex + 1}</span> of {round.length}
@@ -122,6 +124,11 @@ export default function QuizArena({ state, domain, active, onAnswer, onRoundEnd,
           <Zap className="h-4 w-4" /> Combo x{combo}
         </span>
       </div>
+      {round.length > 40 ? (
+        <div className="mb-5 h-1.5 overflow-hidden rounded-full bg-slate-700/70">
+          <div className="h-full rounded-full bg-gradient-to-r from-azure to-cyan transition-[width] duration-500" style={{ width: `${(results.length / round.length) * 100}%` }} />
+        </div>
+      ) : (
       <div className="mb-5 flex gap-1.5">
         {round.map((_, i) => {
           const r = results[i]
@@ -135,6 +142,7 @@ export default function QuizArena({ state, domain, active, onAnswer, onRoundEnd,
           )
         })}
       </div>
+      )}
 
       <div key={shakeKey} className={`glass rounded-3xl p-6 shadow-2xl shadow-black/30 sm:p-7 ${shakeKey && answered && selected !== q.answer ? 'shake' : ''}`}>
         <span className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-bold ${style.chip}`}>
@@ -244,7 +252,7 @@ function OutOfHearts({ state, onRecharge, onGoFlashcards }) {
   )
 }
 
-function RoundSummary({ results, total, bestCombo, hearts, onRetry, onExit, onGoFlashcards }) {
+function RoundSummary({ results, total, bestCombo, hearts, onRetry, onExit, onGoFlashcards, picker }) {
   const correct = results.filter((r) => r.correct).length
   const answered = results.length
   const accuracy = answered ? Math.round((correct / answered) * 100) : 0
@@ -301,6 +309,8 @@ function RoundSummary({ results, total, bestCombo, hearts, onRetry, onExit, onGo
         </div>
       </div>
 
+      <div className="mt-6">{picker}</div>
+
       <h4 className="mb-3 mt-8 text-sm font-bold uppercase tracking-wide text-slate-400">Round review</h4>
       <div className="space-y-2.5">
         {results.map(({ q, chosen, correct: ok }) => (
@@ -326,6 +336,42 @@ function Stat({ label, value, cls }) {
     <div className="rounded-2xl bg-slate-900/50 p-3">
       <p className={`text-2xl font-extrabold ${cls}`}>{value}</p>
       <p className="text-xs font-medium text-slate-400">{label}</p>
+    </div>
+  )
+}
+
+function RoundPicker({ domain, state, roundSize, onRoundSize, locked }) {
+  const pool = questions.filter((q) => !domain || q.domain === domain)
+  const solved = pool.filter((q) => state.correctIds[q.id]).length
+  return (
+    <div className="glass mb-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl px-4 py-3">
+      <p className="text-sm text-slate-300">
+        <span className="font-bold text-white">{pool.length}</span> questions in this bank ·{' '}
+        <span className="font-bold text-emerald">{solved}</span> solved
+      </p>
+      <div className="flex items-center gap-2">
+        <span className="text-xs font-semibold text-slate-400">Round length</span>
+        <div className="flex rounded-xl bg-slate-900/60 p-0.5" role="group" aria-label="Round length">
+          {ROUND_SIZES.map((n) => {
+            const label = n === 0 ? `All ${pool.length}` : n
+            const activeSize = roundSize === n
+            return (
+              <button
+                key={n}
+                onClick={() => onRoundSize(n)}
+                disabled={locked && !activeSize}
+                title={locked && !activeSize ? 'Finish this round to change the length' : undefined}
+                aria-pressed={activeSize}
+                className={`rounded-lg px-2.5 py-1 text-xs font-bold transition disabled:cursor-not-allowed disabled:opacity-40 ${
+                  activeSize ? 'bg-azure text-white' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                {label}
+              </button>
+            )
+          })}
+        </div>
+      </div>
     </div>
   )
 }
